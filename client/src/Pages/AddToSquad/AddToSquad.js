@@ -196,12 +196,12 @@ export default function AddToSquad() {
                 required
                 id="outlined-select-currency"
                 select
-                label="Primer nacionalidad"
+                label="Nacionalidad"
                 value={form.na0}
                 onChange={(e) => updateForm({ na0: e.target.value })}
               >
                 {nacionalidades.map((option) => (
-                  <MenuItem key={option.value} value={option.imgValue}>
+                  <MenuItem key={option.value} className='dropdown-item' value={option.imgValue}>
                     <img
                       alt="nacionalidad"
                       src={option.imgValue}
@@ -221,12 +221,12 @@ export default function AddToSquad() {
                 onChange={(e) => updateForm({ na1: e.target.value })}
               >
                 {nacionalidades.map((option) => (
-                  <MenuItem key={option.value} value={option.imgValue}>
+                  <MenuItem key={option.value} className='dropdown-item' value={option.imgValue}>
                     <img
                       alt="nacionalidad"
                       src={option.imgValue}
                       key={option.imgValue}
-                    ></img>{" "}
+                    ></img>
                     {option.value}
                   </MenuItem>
                 ))}
@@ -242,7 +242,7 @@ export default function AddToSquad() {
                 onChange={(e) => updateForm({ s1: e.target.value })}
               >
                 {languages.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
+                  <MenuItem key={option.value} className='dropdown-item' value={option.value}>
                     {option.value}
                   </MenuItem>
                 ))}
@@ -252,12 +252,12 @@ export default function AddToSquad() {
                 required
                 id="outlined-select-currency"
                 select
-                label="Estados Civil"
+                label="Estado Civil"
                 value={form.s2}
                 onChange={(e) => updateForm({ s2: e.target.value })}
               >
                 {maritalStatusValues.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
+                  <MenuItem key={option.value} className='dropdown-item' value={option.value}>
                     {option.value}
                   </MenuItem>
                 ))}
@@ -272,7 +272,7 @@ export default function AddToSquad() {
                 onChange={(e) => updateForm({ s3: e.target.value })}
               >
                 {childsValues.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
+                  <MenuItem key={option.value} className='dropdown-item' value={option.value}>
                     {option.value}
                   </MenuItem>
                 ))}
@@ -290,7 +290,7 @@ export default function AddToSquad() {
                 onChange={(e) => updateForm({ pn: e.target.value })}
               >
                 {positionValues.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
+                  <MenuItem key={option.value} className='dropdown-item' value={option.value}>
                     {option.value}
                   </MenuItem>
                 ))}
@@ -306,7 +306,7 @@ export default function AddToSquad() {
                 onChange={(e) => updateForm({ ps: e.target.value })}
               >
                 {positionValues.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
+                  <MenuItem key={option.value} className='dropdown-item' value={option.value}>
                     {option.value}
                   </MenuItem>
                 ))}
@@ -322,13 +322,13 @@ export default function AddToSquad() {
                 onChange={(e) => updateForm({ ph: e.target.value })}
               >
                 {footValues.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
+                  <MenuItem key={option.value} className='dropdown-item' value={option.value}>
                     {option.value}
                   </MenuItem>
                 ))}
               </TextField>
 
-              <FormLabel sx={{mt: 5}} component="legend">FÍSICO</FormLabel>
+              <FormLabel sx={{mt: 5}} className='form-label'>FÍSICO</FormLabel>
 
               <TextField
                 sx={{ width: "14ch" }}
@@ -356,10 +356,10 @@ export default function AddToSquad() {
                 wrap="wrap"
                 justifyContent="center"
                 textAlign="left"
-                sx={{ mt: 4 }}
+                sx={{ mt: 8 }}
               >
 
-                <Grid xs={12} sx={{textAlign:'center'}}>
+                <Grid xs={12} sx={{textAlign:'center', mt:4, mb:2}}>
                   <h3>ATRIBUTOS</h3>
                 </Grid>
 
@@ -527,7 +527,7 @@ export default function AddToSquad() {
                 onChange={(e) => updateForm({ agente: e.target.value })}
               />
 
-              <FormLabel sx={{mt: 5}} component="legend">PRIMAS</FormLabel>
+              <FormLabel className='form-label' sx={{mt: 5}}>PRIMAS</FormLabel>
 
               <TextField
                   sx={{width: '24ch'}}
@@ -583,7 +583,7 @@ export default function AddToSquad() {
                 value={form.email}
                 onChange={(e) => updateForm({ email: e.target.value })}
               />
-              <FormLabel sx={{ mt: 5 }} component="legend">
+              <FormLabel className='form-label' sx={{ mt: 5 }}>
                 REDES SOCIALES
               </FormLabel>
               <TextField
@@ -610,7 +610,7 @@ export default function AddToSquad() {
                 value={form.tw}
                 onChange={(e) => updateForm({ tw: e.target.value })}
               />
-              <FormLabel sx={{ mt: 5 }} component="legend">
+              <FormLabel className='form-label' sx={{ mt: 5 }}>
                 LINKS
               </FormLabel>
               <TextField

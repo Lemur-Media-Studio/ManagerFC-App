@@ -1,0 +1,22 @@
+.menu-link{
+    color: #fff !important;
+}
+
+.menu-item{
+    border-bottom: rgb(25,14,67) solid 1px !important;
+}
+
+.menu-item:last-of-type{
+    border-bottom: transparent solid 1px !important;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list{
+    padding: 0px !important;
+    background-color: rgb(55,24,97) !important;
+    border: #020202 solid 2px !important;
+    border-radius: 5px !important;
+}
+
+.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper{
+    background-color: transparent !important;
+}

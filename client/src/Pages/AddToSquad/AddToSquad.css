@@ -41,8 +41,9 @@ li{
     color: #9b0181 !important;
 }
 
-.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root{
+.dropdown-item{
     background-color: #9b0181 !important;
+    border: 1px #9b0181 solid !important;
     color: #020202 !important;
     border-bottom: #020202 1px solid !important;
     padding: 10px !important;
@@ -55,13 +56,6 @@ li{
 .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
     color: #fff !important;
     text-align: left !important;
-}
-
-.css-6hp17o-MuiList-root-MuiMenu-list{
-    padding: 0px !important;
-    background-color: #9b0181 !important;
-    border: transparent solid 2px !important;
-    border-radius: 5px !important;
 }
 
 .css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root{
@@ -86,6 +80,11 @@ input:-internal-autofill-selected {
 
 label{
     color: #fff !important;
+}
+
+.form-label{
+    display: flex !important;
+    justify-content: center !important;
 }
 
 #outlined-select-currency{

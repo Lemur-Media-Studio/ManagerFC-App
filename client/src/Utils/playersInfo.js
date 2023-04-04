@@ -244,12 +244,16 @@ export const contractValues = [
 export const nacionalidades = [
   
   {
-    value: 'Argentina',
-    imgValue: 'https://flagcdn.com/16x12/ar.png'
+    value: 'No',
+    imgValue: ''
   },
-  {
+    {
     value: 'España',
     imgValue: 'https://flagcdn.com/16x12/es.png'
+  },
+  {
+    value: 'Argentina',
+    imgValue: 'https://flagcdn.com/16x12/ar.png'
   },
   {
     value: 'Adorra',

@@ -59,6 +59,7 @@ export default function Edit() {
     mental: "",
     gk: "",
     c:"",
+    salario: "",
     agente:"",
     sc:"",
     cp:"",
@@ -132,11 +133,13 @@ export default function Edit() {
       ph: form.ph,
       alt: form.alt,
       peso: form.peso,
+      pesoI: form.pesoI,
       tec: form.tec,
       fisico: form.fisico,
       mental: form.mental,
       gk: form.gk,
       c:form.c,
+      salario: form.salario,
       agente:form.agente,
       sc:form.sc,
       cp:form.cp,
@@ -374,7 +377,7 @@ export default function Edit() {
       <TextField
         sx={{ width: "14ch" }}
         label="Peso ideal"
-        value={form.peso}
+        value={form.pesoI}
         onChange={(e) => updateForm({ peso: e.target.value })}
       />
 
@@ -523,6 +526,7 @@ export default function Edit() {
           sx={{width: '24ch'}}
           id="outlined-required"
           label="Salario bruto"
+          value={form.salario}
           defaultValue=""
       />
 

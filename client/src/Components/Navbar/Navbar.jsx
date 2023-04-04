@@ -15,6 +15,7 @@ import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 import { navbarSettings } from './navbarSettings';
 import { navbarItems } from './navbarItems';
 import { Link } from 'react-router-dom';
+import './Navbar.css';
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -148,8 +149,8 @@ function Navbar() {
               onClose={handleCloseUserMenu}
             >
               {navbarSettings.map((setting) => (
-                <MenuItem as={Link} to={setting.route} key={setting.id} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting.label}</Typography>
+                <MenuItem className='menu-item' as={Link} to={setting.route} key={setting.id} onClick={handleCloseUserMenu}>
+                  <Typography className='menu-link' textAlign="center">{setting.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
