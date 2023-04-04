@@ -19,7 +19,7 @@ const App = () => {
       <div className="App" style={{ margin: 0 }}>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<SquadPlayer />} />
+          <Route exact path="/squad" element={<SquadPlayer />} />
           <Route path="/edit/:id" element={<Edit />} />
           <Route path="/add-to-squad" element={<AddToSquad />} />
           <Route path="/detail/:id" element={<SquadPlayerDetails />} />
