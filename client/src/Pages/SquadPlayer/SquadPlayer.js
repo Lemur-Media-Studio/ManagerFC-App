@@ -11,7 +11,40 @@ import {
 import { Link } from "react-router-dom";
 import "./SquadPlayer.css";
 
+// List players function
 const Record = (props) => (
+  <Grid
+    container
+    marginTop="50px"
+    display="flex"
+    wrap="wrap"
+    justifyContent="center"
+  >
+    <Card
+      sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
+      className="squad-players-card"
+    >
+      <CardContent className="squad-players-card">
+        <Typography gutterBottom variant="h5" component="div">
+          {props.record.name + " " + props.record.surname}
+        </Typography>
+        <Typography variant="body2" color="#fff">
+          <img src={props.record.na0} alt="Nacionalidad"></img>
+        </Typography>
+        <Typography variant="body2" color="#fff">
+          {props.record.age0}
+        </Typography>
+        <Typography variant="body2" color="#fff">
+          {props.record.pn + " - " + props.record.ps}
+        </Typography>
+      </CardContent>
+      <CardActions className="squad-players-card-actions"></CardActions>
+    </Card>
+  </Grid>
+);
+
+// List only POR players function
+const RecordPOR = (props) => (
   <Grid
     container
     marginTop="50px"
@@ -61,19 +94,211 @@ const Record = (props) => (
         >
           Editar
         </Button>
-       
-
-    
       </CardActions>
       <Button
-            className="btn-squad-players"
-            onClick={() => {
-              props.deleteRecord(props.record._id);
-            }}
-            size="small"
-          >
-            Delete
-          </Button>
+        className="btn-squad-players"
+        onClick={() => {
+          props.deleteRecord(props.record._id);
+        }}
+        size="small"
+      >
+        Delete
+      </Button>
+    </Card>
+  </Grid>
+);
+
+// List only POR players function
+const RecordDEF = (props) => (
+  <Grid
+    container
+    marginTop="50px"
+    display="flex"
+    wrap="wrap"
+    justifyContent="center"
+  >
+    <Card
+      sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
+      className="squad-players-card"
+    >
+      <CardMedia
+        component="img"
+        alt="green iguana"
+        height="300"
+        width="400"
+        image={props.record.img}
+      />
+      <CardContent className="squad-players-card">
+        <Typography gutterBottom variant="h5" component="div">
+          {props.record.name + " " + props.record.surname}
+        </Typography>
+        <Typography variant="body2" color="#fff">
+          <img src={props.record.na0} alt="Nacionalidad"></img>
+        </Typography>
+        <Typography variant="body2" color="#fff">
+          {props.record.age0}
+        </Typography>
+        <Typography variant="body2" color="#fff">
+          {props.record.pn + " - " + props.record.ps}
+        </Typography>
+      </CardContent>
+      <CardActions className="squad-players-card-actions">
+        <Button
+          as={Link}
+          to={`/detail/${props.record._id}`}
+          className="btn-squad-players"
+          size="small"
+        >
+          Detalles
+        </Button>
+        <Button
+          as={Link}
+          to={`/edit/${props.record._id}`}
+          className="btn-squad-players"
+          size="small"
+        >
+          Editar
+        </Button>
+      </CardActions>
+      <Button
+        className="btn-squad-players"
+        onClick={() => {
+          props.deleteRecord(props.record._id);
+        }}
+        size="small"
+      >
+        Delete
+      </Button>
+    </Card>
+  </Grid>
+);
+
+// List only MED players function
+const RecordMED = (props) => (
+  <Grid
+    container
+    marginTop="50px"
+    display="flex"
+    wrap="wrap"
+    justifyContent="center"
+  >
+    <Card
+      sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
+      className="squad-players-card"
+    >
+      <CardMedia
+        component="img"
+        alt="green iguana"
+        height="300"
+        width="400"
+        image={props.record.img}
+      />
+      <CardContent className="squad-players-card">
+        <Typography gutterBottom variant="h5" component="div">
+          {props.record.name + " " + props.record.surname}
+        </Typography>
+        <Typography variant="body2" color="#fff">
+          <img src={props.record.na0} alt="Nacionalidad"></img>
+        </Typography>
+        <Typography variant="body2" color="#fff">
+          {props.record.age0}
+        </Typography>
+        <Typography variant="body2" color="#fff">
+          {props.record.pn + " - " + props.record.ps}
+        </Typography>
+      </CardContent>
+      <CardActions className="squad-players-card-actions">
+        <Button
+          as={Link}
+          to={`/detail/${props.record._id}`}
+          className="btn-squad-players"
+          size="small"
+        >
+          Detalles
+        </Button>
+        <Button
+          as={Link}
+          to={`/edit/${props.record._id}`}
+          className="btn-squad-players"
+          size="small"
+        >
+          Editar
+        </Button>
+      </CardActions>
+      <Button
+        className="btn-squad-players"
+        onClick={() => {
+          props.deleteRecord(props.record._id);
+        }}
+        size="small"
+      >
+        Delete
+      </Button>
+    </Card>
+  </Grid>
+);
+
+// List only DEL players function
+const RecordDEL = (props) => (
+  <Grid
+    container
+    marginTop="50px"
+    display="flex"
+    wrap="wrap"
+    justifyContent="center"
+  >
+    <Card
+      sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
+      className="squad-players-card"
+    >
+      <CardMedia
+        component="img"
+        alt="green iguana"
+        height="300"
+        width="400"
+        image={props.record.img}
+      />
+      <CardContent className="squad-players-card">
+        <Typography gutterBottom variant="h5" component="div">
+          {props.record.name + " " + props.record.surname}
+        </Typography>
+        <Typography variant="body2" color="#fff">
+          <img src={props.record.na0} alt="Nacionalidad"></img>
+        </Typography>
+        <Typography variant="body2" color="#fff">
+          {props.record.age0}
+        </Typography>
+        <Typography variant="body2" color="#fff">
+          {props.record.pn + " - " + props.record.ps}
+        </Typography>
+      </CardContent>
+      <CardActions className="squad-players-card-actions">
+        <Button
+          as={Link}
+          to={`/detail/${props.record._id}`}
+          className="btn-squad-players"
+          size="small"
+        >
+          Detalles
+        </Button>
+        <Button
+          as={Link}
+          to={`/edit/${props.record._id}`}
+          className="btn-squad-players"
+          size="small"
+        >
+          Editar
+        </Button>
+      </CardActions>
+      <Button
+        className="btn-squad-players"
+        onClick={() => {
+          props.deleteRecord(props.record._id);
+        }}
+        size="small"
+      >
+        Delete
+      </Button>
     </Card>
   </Grid>
 );
@@ -81,7 +306,7 @@ const Record = (props) => (
 export default function SquadPlayer() {
   const [records, setRecords] = useState([]);
 
-  // This method fetches the records from the database.
+  // This method fetches the player data from the database.
   useEffect(() => {
     async function getRecords() {
       const response = await fetch(`http://localhost:3001/record/`);
@@ -101,7 +326,7 @@ export default function SquadPlayer() {
     return;
   }, [records.length]);
 
-  // This method will delete a record
+  // This method will delete a player
   async function deleteRecord(id) {
     await fetch(`http://localhost:3001/${id}`, {
       method: "DELETE",
@@ -111,7 +336,7 @@ export default function SquadPlayer() {
     setRecords(newRecords);
   }
 
-  // This method will map out the records on the table
+  // map data id
   function recordList() {
     return records.map((record) => {
       return (
@@ -124,305 +349,99 @@ export default function SquadPlayer() {
     });
   }
 
+  // map data id & pn = POR
+  function recordListPOR() {
+    return records.map((record) => {
+      if (record.pn == "POR") {
+        //console.log(record)
+        return (
+          <RecordPOR
+            record={record}
+            deleteRecord={() => deleteRecord(record._id)}
+            key={record._id}
+          />
+        );
+      }
+    });
+  }
+
+  // map data id & pn = DC-LD-LI-CRD-CRI
+  function recordListDEF() {
+    return records.map((record) => {
+      if (record.pn == "CRD") {
+        //console.log(record)
+        return (
+          <RecordDEF
+            record={record}
+            deleteRecord={() => deleteRecord(record._id)}
+            key={record._id}
+          />
+        );
+      }
+    });
+  }
+
+  // map data id & pn = PIV DEF-MC-MP
+  function recordListMED() {
+    return records.map((record) => {
+      if (record.pn == "PIV DEF") {
+        //console.log(record)
+        return (
+          <RecordMED
+            record={record}
+            deleteRecord={() => deleteRecord(record._id)}
+            key={record._id}
+          />
+        );
+      }
+    });
+  }
+
+  // map data id & pn = PIV DEF-MC-MP
+  function recordListDEL() {
+    return records.map((record) => {
+      if (record.pn == "DEL") {
+        //console.log(record)
+        return (
+          <RecordDEL
+            record={record}
+            deleteRecord={() => deleteRecord(record._id)}
+            key={record._id}
+          />
+        );
+      }
+    });
+  }
+
   // This following section will display the table with the records of individuals.
   return (
     <>
+      <h1>Plantilla</h1>
       <div>{recordList()}</div>
 
-      <h1>Plantilla</h1>
-
       <h2>Porteros</h2>
-      <Grid
-        container
-        marginTop="50px"
-        display="flex"
-        wrap="wrap"
-        justifyContent="center"
-      >
-        <Card
-          sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
-          className="squad-players-card"
-        >
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="300"
-            width="400"
-            image="https://lh3.googleusercontent.com/pw/AMWts8BwSPhosGGYhDLbA_xxNehQsSzJ3pFB1CfcG4ecViTS2C2dMopPgwD-FvQAQK2Y3lrpknENlWVg9HFYQY75JbKE5KnP4ik5ANZqW3XPXswFwio97HDW4x3f1sCat1WKPm3akuafuFWTGkSySr0Zaos9=w696-h975-s-no?authuser=0"
-          />
-          <CardContent className="squad-players-card">
-            <Typography gutterBottom variant="h5" component="div">
-              Carlos Mena
-            </Typography>
-            <Typography variant="body2" color="#fff">
-            🇪🇸
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              26 años
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              POR
-            </Typography>
-          </CardContent>
-          <CardActions className="squad-players-card-actions">
-            <Button className="btn-squad-players" size="small">
-              Details
-            </Button>
-            <Button className="btn-squad-players" size="small">
-              Edit
-            </Button>
-          </CardActions>
-        </Card>
-
-        <Card
-          sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
-          className="squad-players-card"
-        >
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="300"
-            width="400"
-            image="https://lh3.googleusercontent.com/pw/AMWts8BJB3pzMGBfj-w-Prh3OvVAr6elssykLFkW3Xa_QWnKF7kxGJDbL29FhNlZOTzzFt_eqFkPWIl-yUa5_TQG5h3IfytXOiQ9CNjdbBQLx_DWmohLY4J3zy-y9ssgS9eVC4tvaX8BWf0xI1V6XDx0NSRj=w500-h500-s-no?authuser=0"
-          />
-          <CardContent className="squad-players-card">
-            <Typography gutterBottom variant="h5" component="div">
-              Marvyn Dorchin
-            </Typography>
-            <Typography variant="body2" color="#fff">
-            🇫🇷
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              26 años
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              POR
-            </Typography>
-          </CardContent>
-          <CardActions className="squad-players-card-actions">
-            <Button className="btn-squad-players" size="small">
-              Details
-            </Button>
-            <Button className="btn-squad-players" size="small">
-              Edit
-            </Button>
-          </CardActions>
-        </Card>
-      </Grid>
+      <div>{recordListPOR()}</div>
 
       <div className="line-container">
         <div className="line"></div>
       </div>
 
       <h2>Defensas</h2>
-      <Grid
-        container
-        marginTop="50px"
-        display="flex"
-        wrap="wrap"
-        justifyContent="center"
-      >
-        <Card
-          sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
-          className="squad-players-card"
-        >
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="300"
-            width="400"
-            image="https://lh3.googleusercontent.com/pw/AMWts8DspgMglH9i00j1yLn6DkU_Ay7V6681-ZtT39GbN_eQGbRNYT3eYUsmrLYAOKf_H9ApUEy6DpP5N3kp4rVZNeE30UG3Jb5j-kd_E8Sae0GqsIvTf8BT_QZTuTvrNUiY6s1eGMaeFYxU27fPgGZ1mylb=w696-h975-s-no?authuser=0"
-          />
-          <CardContent className="squad-players-card">
-            <Typography gutterBottom variant="h5" component="div">
-              Luciano Venturini
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              🇦🇷
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              31 años
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              DFC - LD
-            </Typography>
-          </CardContent>
-          <CardActions className="squad-players-card-actions">
-            <Button className="btn-squad-players" size="small">
-              Details
-            </Button>
-            <Button className="btn-squad-players" size="small">
-              Edit
-            </Button>
-          </CardActions>
-        </Card>
-
-        <Card
-          sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
-          className="squad-players-card"
-        >
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="300"
-            width="400"
-            image="https://lh3.googleusercontent.com/pw/AMWts8C1tce_2-cKfv4yTqK_cAIV4DyoXntrfcNIXwva8zTJ3RSOsqYfYkzBiCmw1tasB7p2YpiddUIugwYMi_U3QdQ6p8ZHswiWvEhWrKKcZVY_77-X_TfkeuRFG7f5-KCHX5QPO97oP59BHZ5i87eDxDBb=w731-h975-s-no?authuser=0"
-          />
-          <CardContent className="squad-players-card">
-            <Typography gutterBottom variant="h5" component="div">
-              Alpha Diallo
-            </Typography>
-            <Typography variant="body2" color="#fff">
-            🇪🇸
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              21 años
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              LD - CRD
-            </Typography>
-          </CardContent>
-          <CardActions className="squad-players-card-actions">
-            <Button className="btn-squad-players" size="small">
-              Details
-            </Button>
-            <Button className="btn-squad-players" size="small">
-              Edit
-            </Button>
-          </CardActions>
-        </Card>
-
-        <Card
-          sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
-          className="squad-players-card"
-        >
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="300"
-            width="400"
-            image="https://lh3.googleusercontent.com/pw/AMWts8C-sDFa-dKZIlW5TUgNZsXbtuxFr1FXgZW43Go804hyKVYj2o9kmJQTOs-V97fgHlGu5RMjlN6lP2NgMYWOq1jNBtp-tn2IjxNXbGYfcgOz_9Oj2sF475l31L0GVoI55hf4ghNki6FiHEkwwGuhlnFc=w731-h975-s-no?authuser=0"
-          />
-          <CardContent className="squad-players-card">
-            <Typography gutterBottom variant="h5" component="div">
-              Carlos Sanjuan
-            </Typography>
-            <Typography variant="body2" color="#fff">
-            🇪🇸
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              26 años
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              PIV - DFC
-            </Typography>
-          </CardContent>
-          <CardActions className="squad-players-card-actions">
-            <Button className="btn-squad-players" size="small">
-              Details
-            </Button>
-            <Button className="btn-squad-players" size="small">
-              Edit
-            </Button>
-          </CardActions>
-        </Card>
-      </Grid>
+      <div>{recordListDEF()}</div>
 
       <div className="line-container">
         <div className="line"></div>
       </div>
 
       <h2>Mediocampistas</h2>
-      <Grid
-        container
-        marginTop="50px"
-        display="flex"
-        wrap="wrap"
-        justifyContent="center"
-      >
-        <Card
-          sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
-          className="squad-players-card"
-        >
-          <CardMedia
-            component="img"
-            alt="Foto de perfil"
-            height="300"
-            width="400"
-            image="https://s.hs-data.com/bilder/spieler/gross/302274.jpg"
-          />
-          <CardContent className="squad-players-card">
-            <Typography gutterBottom variant="h5" component="div">
-              Rodrigo Bentancur
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              🇺🇾
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              25 años
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              MC - PIV DEF
-            </Typography>
-          </CardContent>
-          <CardActions className="squad-players-card-actions">
-            <Button className="btn-squad-players" size="small">
-              Details
-            </Button>
-            <Button className="btn-squad-players" size="small">
-              Edit
-            </Button>
-          </CardActions>
-        </Card>
-      </Grid>
+      <div>{recordListMED()}</div>
 
       <div className="line-container">
         <div className="line"></div>
       </div>
 
       <h2>Delanteros</h2>
-      <Grid
-        container
-        marginTop="50px"
-        display="flex"
-        wrap="wrap"
-        justifyContent="center"
-      >
-        <Card
-          sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
-          className="squad-players-card"
-        >
-          <CardMedia
-            component="img"
-            alt="green iguana"
-            height="300"
-            width="400"
-            image="https://s.hs-data.com/bilder/spieler/gross/179293.jpg"
-          />
-          <CardContent className="squad-players-card">
-            <Typography gutterBottom variant="h5" component="div">
-              Harry Kane
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              🏴󠁧󠁢󠁥󠁮󠁧󠁿
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              29 años
-            </Typography>
-            <Typography variant="body2" color="#fff">
-              DEL - SD
-            </Typography>
-          </CardContent>
-          <CardActions className="squad-players-card-actions">
-            <Button className="btn-squad-players" size="small">
-              Details
-            </Button>
-            <Button className="btn-squad-players" size="small">
-              Edit
-            </Button>
-          </CardActions>
-        </Card>
-      </Grid>
+      <div>{recordListDEL()}</div>
     </>
   );
 }
