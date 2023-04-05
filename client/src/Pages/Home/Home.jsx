@@ -10,7 +10,7 @@ function Home(){
 
     return(
         <>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/%C3%9Altima_versi%C3%B3n_del_escudo_del_CD._Manchego.png" className='manechego-badge' height="500" alt="Escudo Deportivo Manchego" />
+            <img src="https://escudoscr.stg7.net/escudos/manchego2020.png" className='manechego-badge' height="500" alt="Escudo Deportivo Manchego" />
             <Grid
             className='main-grid'
             container
