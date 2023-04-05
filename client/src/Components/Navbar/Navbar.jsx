@@ -37,10 +37,10 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" sx={{background:'linear-gradient(100deg, rgb(75,44,107) 4%, rgb(55,24,97) 8%, rgb(25,14,67) 75%, rgb(16, 5, 32) 5%)', color:'#fff'}}>
+    <AppBar sx={{background:'linear-gradient(100deg, rgb(75,44,107) 4%, rgb(55,24,97) 8%, rgb(25,14,67) 75%, rgb(16, 5, 32) 5%)', color:'#fff'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <SportsSoccerIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+{/*           <SportsSoccerIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
@@ -49,14 +49,14 @@ function Navbar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              fontFamily: 'Inter',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LEMURFC-APP
+            LEMUR PRO MANAGEMENT
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

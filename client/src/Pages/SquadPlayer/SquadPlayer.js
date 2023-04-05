@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import "./SquadPlayer.css";
 
 // List players function
-const Record = (props) => (
+/* const Record = (props) => (
   <Grid
     container
     marginTop="50px"
@@ -41,17 +41,10 @@ const Record = (props) => (
       <CardActions className="squad-players-card-actions"></CardActions>
     </Card>
   </Grid>
-);
+); */
 
 // List only POR players function
 const RecordPOR = (props) => (
-  <Grid
-    container
-    marginTop="50px"
-    display="flex"
-    wrap="wrap"
-    justifyContent="center"
-  >
     <Card
       sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
       className="squad-players-card"
@@ -105,18 +98,10 @@ const RecordPOR = (props) => (
         Delete
       </Button>
     </Card>
-  </Grid>
 );
 
 // List only POR players function
 const RecordDEF = (props) => (
-  <Grid
-    container
-    marginTop="50px"
-    display="flex"
-    wrap="wrap"
-    justifyContent="center"
-  >
     <Card
       sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
       className="squad-players-card"
@@ -170,18 +155,10 @@ const RecordDEF = (props) => (
         Delete
       </Button>
     </Card>
-  </Grid>
 );
 
 // List only MED players function
 const RecordMED = (props) => (
-  <Grid
-    container
-    marginTop="50px"
-    display="flex"
-    wrap="wrap"
-    justifyContent="center"
-  >
     <Card
       sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
       className="squad-players-card"
@@ -235,18 +212,10 @@ const RecordMED = (props) => (
         Delete
       </Button>
     </Card>
-  </Grid>
 );
 
 // List only DEL players function
 const RecordDEL = (props) => (
-  <Grid
-    container
-    marginTop="50px"
-    display="flex"
-    wrap="wrap"
-    justifyContent="center"
-  >
     <Card
       sx={{ maxWidth: 200, marginX: 4, marginY: 3 }}
       className="squad-players-card"
@@ -300,7 +269,6 @@ const RecordDEL = (props) => (
         Delete
       </Button>
     </Card>
-  </Grid>
 );
 
 export default function SquadPlayer() {
@@ -337,7 +305,7 @@ export default function SquadPlayer() {
   }
 
   // map data id
-  function recordList() {
+/*   function recordList() {
     return records.map((record) => {
       return (
         <Record
@@ -347,7 +315,7 @@ export default function SquadPlayer() {
         />
       );
     });
-  }
+  } */
 
   // map data id & pn = POR
   function recordListPOR() {
@@ -368,7 +336,7 @@ export default function SquadPlayer() {
   // map data id & pn = DC-LD-LI-CRD-CRI
   function recordListDEF() {
     return records.map((record) => {
-      if (record.pn == "CRD") {
+      if (record.pn == "DC" || record.pn == "LD" || record.pn == "LI" || record.pn == "CRD" || record.pn == "CRI") {
         //console.log(record)
         return (
           <RecordDEF
@@ -384,7 +352,7 @@ export default function SquadPlayer() {
   // map data id & pn = PIV DEF-MC-MP
   function recordListMED() {
     return records.map((record) => {
-      if (record.pn == "PIV DEF") {
+      if (record.pn == "PIV DEF" || record.pn == "MC" || record.pn == "MP") {
         //console.log(record)
         return (
           <RecordMED
@@ -400,7 +368,7 @@ export default function SquadPlayer() {
   // map data id & pn = PIV DEF-MC-MP
   function recordListDEL() {
     return records.map((record) => {
-      if (record.pn == "DEL") {
+      if (record.pn == "DEL" || record.pn == "EXI" || record.pn == "EXD") {
         //console.log(record)
         return (
           <RecordDEL
@@ -417,31 +385,63 @@ export default function SquadPlayer() {
   return (
     <>
       <h1>Plantilla</h1>
-      <div>{recordList()}</div>
+{/*       <div>{recordList()}</div> */}
 
       <h2>Porteros</h2>
-      <div>{recordListPOR()}</div>
+      <Grid
+        container
+        marginTop="50px"
+        display="flex"
+        wrap="wrap"
+        justifyContent="center"
+      >
+        {recordListPOR()}
+      </Grid>
 
       <div className="line-container">
         <div className="line"></div>
       </div>
 
       <h2>Defensas</h2>
-      <div>{recordListDEF()}</div>
+      <Grid
+        container
+        marginTop="50px"
+        display="flex"
+        wrap="wrap"
+        justifyContent="center"
+      >
+        {recordListDEF()}
+      </Grid>
 
       <div className="line-container">
         <div className="line"></div>
       </div>
 
       <h2>Mediocampistas</h2>
-      <div>{recordListMED()}</div>
+      <Grid
+        container
+        marginTop="50px"
+        display="flex"
+        wrap="wrap"
+        justifyContent="center"
+      >
+        {recordListMED()}
+      </Grid>
 
       <div className="line-container">
         <div className="line"></div>
       </div>
 
       <h2>Delanteros</h2>
-      <div>{recordListDEL()}</div>
+      <Grid
+        container
+        marginTop="50px"
+        display="flex"
+        wrap="wrap"
+        justifyContent="center"
+      >
+        {recordListDEL()}
+      </Grid>
     </>
   );
 }

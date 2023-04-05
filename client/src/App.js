@@ -9,6 +9,7 @@ import Edit from "./Components/edit";
 import SquadPlayerDetails from "./Pages/SquadPlayerDetails/SquadPlayerDetails";
 import AddToSquad from "./Pages/AddToSquad/AddToSquad";
 import SquadPlayer from "./Pages/SquadPlayer/SquadPlayer";
+import Home from "./Pages/Home/Home";
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
       <div className="App" style={{ margin: 0 }}>
         <Navbar />
         <Routes>
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/squad" element={<SquadPlayer />} />
           <Route path="/edit/:id" element={<Edit />} />
           <Route path="/add-to-squad" element={<AddToSquad />} />
