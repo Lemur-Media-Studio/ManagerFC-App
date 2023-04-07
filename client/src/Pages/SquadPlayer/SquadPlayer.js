@@ -277,7 +277,7 @@ export default function SquadPlayer() {
   // This method fetches the player data from the database.
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`http://localhost:3001/record/`);
+      const response = await fetch(`http://localhost:3001/record/`, `https://manchego.onrender.com/record`);
 
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;
@@ -296,7 +296,7 @@ export default function SquadPlayer() {
 
   // This method will delete a player
   async function deleteRecord(id) {
-    await fetch(`http://localhost:3001/${id}`, {
+    await fetch(`http://localhost:3001/${id}`, `https://manchego.onrender.com/${id}`, {
       method: "DELETE",
     });
 
