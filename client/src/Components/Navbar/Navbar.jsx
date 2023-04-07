@@ -149,8 +149,8 @@ function Navbar() {
               onClose={handleCloseUserMenu}
             >
               {navbarSettings.map((setting) => (
-                <MenuItem className='menu-item' as={Link} to={setting.route} key={setting.id} onClick={handleCloseUserMenu}  >
-                  <Typography className='menu-link' textAlign="center">{setting.label}</Typography>
+                <MenuItem className='menu-item' classNamePrefix="react-select" as={Link} to={setting.route} key={setting.id} onClick={handleCloseUserMenu}  >
+                  <Typography className='menu-link' classNamePrefix="react-select" textAlign="center">{setting.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
