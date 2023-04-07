@@ -149,7 +149,7 @@ function Navbar() {
               onClose={handleCloseUserMenu}
             >
               {navbarSettings.map((setting) => (
-                <MenuItem className='menu-item' as={Link} to={setting.route} key={setting.id} onClick={handleCloseUserMenu}>
+                <MenuItem className='menu-item' style={{ borderBottom:"1px solid rgb(25,14,67)"  }} as={Link} to={setting.route} key={setting.id} onClick={handleCloseUserMenu}>
                   <Typography className='menu-link' textAlign="center">{setting.label}</Typography>
                 </MenuItem>
               ))}
