@@ -91,7 +91,7 @@ export default function Edit() {
     async function fetchData() {
       const id = params.id.toString();
       const response = await fetch(
-        `http://localhost:3001/record/${params.id.toString()}`, `https://manchego.onrender.com/record/${params.id.toString()}`,
+        `https://manchego.onrender.com/record/${params.id.toString()}`
       );
 
       if (!response.ok) {
@@ -172,7 +172,7 @@ export default function Edit() {
     };
 
     // This will send a post request to update the data in the database.
-    await fetch(`http://localhost:3001/update/${params.id}`, `https://manchego.onrender.com/update/${params.id}`, {
+    await fetch(`https://manchego.onrender.com/update/${params.id}`, {
       method: "POST",
       body: JSON.stringify(editedPerson),
       headers: {

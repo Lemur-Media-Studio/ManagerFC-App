@@ -34,7 +34,7 @@ export default function SquadPlayerDetails() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
-      const response = await fetch(`http://localhost:3001/record/${params.id.toString()}`, `https://manchego.onrender.com/record/${params.id.toString()}`);
+      const response = await fetch(`https://manchego.onrender.com/record/${params.id.toString()}`);
 
       if (!response.ok) {
         const message = `An error has occured: ${response.statusText}`;
