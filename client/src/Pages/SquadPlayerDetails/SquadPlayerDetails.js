@@ -165,10 +165,10 @@ export default function SquadPlayerDetails() {
         DETALLES
       </FormLabel>
       <ul>
-        <li>Salario bruto: {form.salario}</li>
-        <li>Comienzo: {form.salario}</li>
-        <li>Final: {form.salario}</li>
-        <li>Alta en SS: {form.salario}</li>
+        <li>Salario bruto: {form.sb}</li>
+        <li>Comienzo: {form.com}</li>
+        <li>Final: {form.fin}</li>
+        <li>Alta en SS: {form.ss}</li>
         <li>Agente: {form.agente}</li>
       </ul>
     </Grid>
@@ -182,11 +182,11 @@ export default function SquadPlayerDetails() {
         PRIMAS
       </FormLabel>
       <ul>
-        <li>Portería en 0: {form.salario}</li>
-        <li>Asistencia: {form.salario}</li>
-        <li>Gol: {form.salario}</li>
-        <li>Clasificar a Playoff: {form.salario}</li>
-        <li>Ganar la Liga: {form.salario}</li>
+        <li>Portería en 0: {form.por0}</li>
+        <li>Asistencia: {form.asis}</li>
+        <li>Gol: {form.gol}</li>
+        <li>Clasificar a Playoff: {form.cpo}</li>
+        <li>Ganar la Liga: {form.gll}</li>
       </ul>
     </Grid>
     </Grid>

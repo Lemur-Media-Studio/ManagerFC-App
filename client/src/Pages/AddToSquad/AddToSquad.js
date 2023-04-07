@@ -54,7 +54,16 @@ export default function AddToSquad() {
     mental: "",
     gk: "",
     c: "",
+    sb:"",
+    ss:"",
+    com:"",
+    fin:"",
     agente: "",
+    por0:"",
+    asis:"",
+    gol:"",
+    cpo:"",
+    gll:"",
     sc: "",
     cp: "",
     ca: "",
@@ -118,7 +127,16 @@ export default function AddToSquad() {
       mental: "",
       gk: "",
       c: "",
+      sb:"",
+      ss:"",
+      com:"",
+      fin:"",
       agente: "",
+      por0:"",
+      asis:"",
+      gol:"",
+      cpo:"",
+      gll:"",
       sc: "",
       cp: "",
       ca: "",
@@ -494,28 +512,36 @@ export default function AddToSquad() {
                   sx={{width: '24ch'}}
                   id="outlined-required"
                   label="Salario bruto"
-                  defaultValue=""
+                  value={form.sb}
+                  onChange={(e) => updateForm({ sb: e.target.value })}
+     
               />
 
               <TextField
                   sx={{width: '24ch'}}
                   id="outlined-required"
                   label="Alta en SS"
-                  defaultValue=""
+                  value={form.ss}
+                  onChange={(e) => updateForm({ ss: e.target.value })}
+     
               />
 
               <TextField
                   sx={{width: '24ch'}}
                   id="outlined-required"
                   label="Comienzo"
-                  defaultValue=""
+                  value={form.com}
+                  onChange={(e) => updateForm({ com: e.target.value })}
+     
               />
 
               <TextField
                   sx={{width: '24ch'}}
                   id="outlined-required"
                   label="Final"
-                  defaultValue=""
+                  value={form.fin}
+                  onChange={(e) => updateForm({ fin: e.target.value })}
+     
               />
 
               <TextField
@@ -533,35 +559,45 @@ export default function AddToSquad() {
                   sx={{width: '24ch'}}
                   id="outlined-required"
                   label="Portería en 0"
-                  defaultValue=""
+                  value={form.por0}
+                  onChange={(e) => updateForm({ por0: e.target.value })}
+     
               />
 
               <TextField
                   sx={{width: '24ch'}}
                   id="outlined-required"
                   label="Asistencia"
-                  defaultValue=""
+                  value={form.asis}
+                  onChange={(e) => updateForm({ asis: e.target.value })}
+     
               />
 
               <TextField
                   sx={{width: '24ch'}}
                   id="outlined-required"
                   label="Gol"
-                  defaultValue=""
+                  value={form.gol}
+                  onChange={(e) => updateForm({ gol: e.target.value })}
+     
               />
 
               <TextField
                   sx={{width: '24ch'}}
                   id="outlined-required"
                   label="Clasificar a Playoff"
-                  defaultValue=""
+                  value={form.cpo}
+                  onChange={(e) => updateForm({ cpo: e.target.value })}
+     
               />
 
               <TextField
                   sx={{width: '24ch'}}
                   id="outlined-required"
                   label="Ganar la Liga"
-                  defaultValue=""
+                  value={form.gll}
+                  onChange={(e) => updateForm({ gll: e.target.value })}
+     
               />
 
               <div className="line-form"></div>
