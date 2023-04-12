@@ -9,7 +9,15 @@ h2{
     font-size: 30px !important;
     margin-top: 50px !important;
 }
+.bi-search{
+    color: #fff;
+}
 
+.buscar{
+    text-align: right;
+
+    padding: 1%;
+}
 .squad-players-card{
     background-color: #190e43 !important;
     color: #fff !important;
