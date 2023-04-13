@@ -15,7 +15,14 @@ import { Link } from "react-router-dom";
 import "./SquadPlayer.css";
 import Loading from "../../Components/Spinner/Spinner";
 import Input from '@mui/material/Input';
-import { textAlign } from "@mui/system";
+
+
+
+
+function calculateAge(dateString) {
+  var birthday = +new Date(dateString);
+  return ~~((Date.now() - birthday) / (31557600000));
+}
 
 // List only POR players function
 const RecordPOR = (props) => (
@@ -43,7 +50,7 @@ const RecordPOR = (props) => (
         </Button>
       </TableCell>
       <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
-      <TableCell align="center" sx={{ color: 'white' }}>{props.record.age0}</TableCell>
+      <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años </TableCell>
       <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
       <TableCell align="center">
 
@@ -93,7 +100,7 @@ const RecordDEF = (props) => (
         </Button>
       </TableCell>
       <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
-      <TableCell align="center" sx={{ color: 'white' }}>{props.record.age0}</TableCell>
+      <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años</TableCell>
       <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
       <TableCell align="center">
 
@@ -143,7 +150,7 @@ const RecordMED = (props) => (
         </Button>
       </TableCell>
       <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
-      <TableCell align="center" sx={{ color: 'white' }}>{props.record.age0}</TableCell>
+      <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años</TableCell>
       <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
       <TableCell align="center">
 
@@ -193,7 +200,7 @@ const RecordDEL = (props) => (
         </Button>
       </TableCell>
       <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
-      <TableCell align="center" sx={{ color: 'white' }}>{props.record.age0}</TableCell>
+      <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años</TableCell>
       <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
       <TableCell align="center">
 

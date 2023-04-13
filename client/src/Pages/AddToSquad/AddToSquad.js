@@ -6,6 +6,15 @@ import Grid from "@mui/material/Grid";
 import { Container, FormLabel, Button } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
+
+
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DateField } from '@mui/x-date-pickers/DateField';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+
+
 import {
   nacionalidades,
   languages,
@@ -27,6 +36,9 @@ import {
   Twitter,
   YouTube,
 } from "@mui/icons-material";
+
+
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import FacebookIcon from "@mui/icons-material/Facebook";
 import SaveIcon from "@mui/icons-material/Save";
 import "./AddToSquad.css";
@@ -201,7 +213,9 @@ export default function AddToSquad() {
           InputLabelProps={{ shrink: true, required: true }}
           value={form.fn}
           onChange={(e) => updateForm({ fn: e.target.value })}
+        
         />
+
         <TextField
           sx={{ width: "24ch" }}
           required

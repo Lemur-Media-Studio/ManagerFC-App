@@ -231,6 +231,7 @@ export default function Edit() {
           InputLabelProps={{ shrink: true, required: true }}
           value={form.fn}
           onChange={(e) => updateForm({ fn: e.target.value })}
+        
         />
         <TextField
           sx={{ width: "24ch" }}
