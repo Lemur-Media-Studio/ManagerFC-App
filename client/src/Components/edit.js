@@ -59,16 +59,16 @@ export default function Edit() {
     mental: "",
     gk: "",
     c: "",
-    sb:"",
-    ss:"",
-    com:"",
-    fin:"",
+    sb: "",
+    ss: "",
+    com: "",
+    fin: "",
     agente: "",
-    por0:"",
-    asis:"",
-    gol:"",
-    cpo:"",
-    gll:"",
+    por0: "",
+    asis: "",
+    gol: "",
+    cpo: "",
+    gll: "",
     sc: "",
     cp: "",
     ca: "",
@@ -223,10 +223,12 @@ export default function Edit() {
           onChange={(e) => updateForm({ img: e.target.value })}
         />
         <TextField
+          type="date"
           sx={{ width: "24ch" }}
           required
           id="fn"
           label="Fecha de nacimiento"
+          InputLabelProps={{ shrink: true, required: true }}
           value={form.fn}
           onChange={(e) => updateForm({ fn: e.target.value })}
         />
