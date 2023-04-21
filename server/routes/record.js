@@ -16,10 +16,7 @@ recordRoutes.route("/record").get(async function (req, response) {
   let db_connect = dbo.getDb();
 
   try {
-    var records = await db_connect
-      .collection("records")
-      .find({})
-      .toArray();
+    var records = await db_connect.collection("records").find({}).toArray();
     response.json(records);
   } catch (e) {
     console.log("An error occurred pulling the records. " + e);
