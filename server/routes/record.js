@@ -12,16 +12,15 @@ const dbo = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
 
 // This section will help you get a list of all the records.
-recordRoutes.route("/record").get(async function (req, response) {
-  let db_connect = dbo.getDb();
-
-  try {
-    var records = await db_connect.collection("records").find({}).toArray();
-    response.json(records);
-  } catch (e) {
-    console.log("An error occurred pulling the records. " + e);
-  }
-
+recordRoutes.route("/record").get(function (req, res) {
+  let db_connect = dbo.getDb("employees");
+  db_connect
+    .collection("records")
+    .find({})
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
 });
 
 // This section will help you get a single record by id
