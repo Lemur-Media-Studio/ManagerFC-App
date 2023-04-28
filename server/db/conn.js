@@ -1,4 +1,3 @@
-
 const { MongoClient } = require("mongodb");
 const Db = process.env.ATLAS_URI;
 const client = new MongoClient(Db, {
@@ -10,6 +9,7 @@ let _db;
 
 module.exports = {
   connectToServer: async function (callback) {
+    console.log("test");
 
     try {
       await client.connect();
@@ -19,7 +19,16 @@ module.exports = {
 
     _db = client.db("employees");
 
-    return (_db === undefined ? false : true);
+    try {
+      var count = await _db.collection("records").countDocuments();
+      console.log(count);
+    } catch (e) {
+      console.error(e);
+    }
+
+    if(_db !== undefined){
+      return true;
+    }
   },
   getDb: function () {
     return _db;
