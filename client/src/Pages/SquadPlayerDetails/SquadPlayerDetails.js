@@ -33,7 +33,7 @@ export default function SquadPlayerDetails() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
-      const response = await fetch(`http://3.11.154.232:5000/record/${params.id.toString()}`);
+      const response = await fetch(`https://3.11.154.232:5000/record/${params.id.toString()}`);
 
       if (!response.ok) {
         const message = `An error has occured: ${response.statusText}`;
