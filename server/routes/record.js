@@ -20,6 +20,8 @@ recordRoutes.route("/record").get(function (req, res) {
     .toArray(function (err, result) {
       if (err) throw err;
       res.json(result);
+      //console.log(result);
+
     });
 });
 
@@ -84,6 +86,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
   db_connect.collection("records").insertOne(myobj, function (err, res) {
     if (err) throw err;
     response.json(res);
+
   });
 });
 
@@ -153,7 +156,7 @@ recordRoutes.route("/:id").delete((req, response) => {
   let myquery = { _id: ObjectId(req.params.id) };
   db_connect.collection("records").deleteOne(myquery, function (err, obj) {
     if (err) throw err;
-    console.log("1 document deleted");
+    console.log("1 document deleted " + req.params.id);
     response.json(obj);
   });
 });

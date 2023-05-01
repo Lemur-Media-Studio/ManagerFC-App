@@ -21,7 +21,7 @@ module.exports = {
 
     try {
       var count = await _db.collection("records").countDocuments();
-      console.log(count);
+      console.log("records player " + count);
     } catch (e) {
       console.error(e);
     }
