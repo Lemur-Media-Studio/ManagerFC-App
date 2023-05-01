@@ -235,7 +235,7 @@ export default function SquadPlayer() {
   // This method fetches the player data from the database.
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`https://3.11.154.232:5000/record/`);
+      const response = await fetch(`http://3.11.154.232:5000/record/`);
 
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;
@@ -255,7 +255,7 @@ export default function SquadPlayer() {
 
   // This method will delete a player
   async function deleteRecord(id) {
-    await fetch(`https://3.11.154.232:5000/${id}`, {
+    await fetch(`http://3.11.154.232:5000/${id}`, {
       method: "DELETE",
     });
 
