@@ -235,7 +235,7 @@ export default function Shortlist() {
   // This method fetches the player data from the database.
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`https://lemurpromanagement-mdg.app/record/`);
+      const response = await fetch(`https://lemurpromanagement-mdg.app/preselectPlayer/`);
 
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;

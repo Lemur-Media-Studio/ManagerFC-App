@@ -24,7 +24,48 @@ import {
 export default function ShortlistedDetails() {
   const [form, setForm] = useState({
     name: "",
-    surname:"",
+    surname: "",
+    img: "",
+    fn: "",
+    age0: "",
+    na0: "",
+    na1: "",
+    age1: "",
+    s1: "",
+    s2: "",
+    s3: "",
+    pn: "",
+    ps: "",
+    ph: "",
+    alt: "",
+    peso: "",
+    tec: "",
+    fisico: "",
+    mental: "",
+    gk: "",
+    c: "",
+    sb: "",
+    ss: "",
+    com: "",
+    fin: "",
+    agente: "",
+    por0: "",
+    asis: "",
+    gol: "",
+    cpo: "",
+    gll: "",
+    sc: "",
+    cp: "",
+    ca: "",
+    phone: "",
+    email: "",
+    face: "",
+    ig: "",
+    tw: "",
+    tf: "",
+    bs: "",
+    yt: "",
+    inci: "",
     records: [],
   });
   const params = useParams();
@@ -33,7 +74,7 @@ export default function ShortlistedDetails() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
-      const response = await fetch(`https://lemurpromanagement-mdg.app/record/${params.id.toString()}`);
+      const response = await fetch(`https://lemurpromanagement-mdg.app/preselectPlayer/${params.id.toString()}`);
 
       if (!response.ok) {
         const message = `An error has occured: ${response.statusText}`;
