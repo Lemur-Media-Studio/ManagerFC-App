@@ -14,5 +14,10 @@ export const navbarItems = [
         label: 'Staff',
         route: '/staff'
     },
+    {
+        id: 3,
+        label: 'Preselección',
+        route: '/shortlist'
+    },
     
 ]

@@ -267,11 +267,31 @@ export const nacionalidades = [
     value: 'Italia',
     imgValue: 'https://flagcdn.com/16x12/it.png'
   },
-
-
-
-
 ];
+
+export const contractSituation = [
+  {
+    value: 'Libre',
+  },
+  {
+    value: 'Contratado',
+  },
+  {
+    value: 'Cedido',
+  },
+]
+
+export const interest = [
+  {
+    value: 'Poco interesado',
+  },
+  {
+    value: 'Interesado',
+  },
+  {
+    value: 'Muy interesado',
+  },
+]
 
 
 
