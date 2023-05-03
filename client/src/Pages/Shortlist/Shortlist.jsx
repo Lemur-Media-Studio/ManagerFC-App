@@ -31,7 +31,7 @@ const RecordPOR = (props) => (
     <TableRow
 
     >
-      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} to={`/detail/${props.record._id}`}>
+      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} to={`/shortlisted-player/${props.record._id}`}>
         {props.record.name + " " + props.record.surname}
 
       </TableCell>
@@ -81,7 +81,7 @@ const RecordDEF = (props) => (
     <TableRow
 
     >
-      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} to={`/detail/${props.record._id}`}>
+      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} to={`/shortlisted-player/${props.record._id}`}>
         {props.record.name + " " + props.record.surname}
 
       </TableCell>
@@ -131,7 +131,7 @@ const RecordMED = (props) => (
     <TableRow
 
     >
-      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} to={`/detail/${props.record._id}`}>
+      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} to={`/shortlisted-player/${props.record._id}`}>
         {props.record.name + " " + props.record.surname}
 
       </TableCell>
@@ -181,7 +181,7 @@ const RecordDEL = (props) => (
     <TableRow
 
     >
-      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} to={`/detail/${props.record._id}`}>
+      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} to={`/shortlisted-player/${props.record._id}`}>
         {props.record.name + " " + props.record.surname}
 
       </TableCell>
