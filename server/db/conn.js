@@ -22,6 +22,8 @@ module.exports = {
     try {
       var count = await _db.collection("records").countDocuments();
       console.log("records player " + count);
+      var count = await _db.collection("preselectPlayers").countDocuments();
+      console.log("preselectPlayers " + count);
     } catch (e) {
       console.error(e);
     }
