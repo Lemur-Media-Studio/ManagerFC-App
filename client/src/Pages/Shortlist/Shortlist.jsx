@@ -39,7 +39,7 @@ const RecordPOR = (props) => (
         <Button
 
           as={Link}
-          to={`/edit/${props.record._id}`}
+          to={`/edit-shortlisted-player/${props.record._id}`}
 
 
         >
@@ -89,7 +89,7 @@ const RecordDEF = (props) => (
         <Button
 
           as={Link}
-          to={`/edit/${props.record._id}`}
+          to={`/edit-shortlisted-player/${props.record._id}`}
 
 
         >
@@ -139,7 +139,7 @@ const RecordMED = (props) => (
         <Button
 
           as={Link}
-          to={`/edit/${props.record._id}`}
+          to={`/edit-shortlisted-player/${props.record._id}`}
 
 
         >
