@@ -13,6 +13,7 @@ import Home from "./Pages/Home/Home";
 import NewProfile from "./Pages/NewProfile/NewProfile";
 import Shortlist from "./Pages/Shortlist/Shortlist";
 import ShortlistedDetails from "./Pages/ShortlistedDetails/ShortlistedDetails";
+import EditpreselectPlayer from "./Components/editsquadPlayers";
 
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/new-profile" element={<NewProfile />} />
           <Route path="/shortlist" element={<Shortlist />} />
           <Route path="/shortlisted-player/:id" element={<ShortlistedDetails />} />
+          <Route path="/edit-shortlisted-player/:id" element={<EditpreselectPlayer />} />
         </Routes>
       </div>
   

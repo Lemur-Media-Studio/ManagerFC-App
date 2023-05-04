@@ -36,7 +36,7 @@ import SaveIcon from "@mui/icons-material/Save";
 
 import "../Pages/AddToSquad/AddToSquad.css";
 
-export default function Edit() {
+export default function EditpreselectPlayer() {
   const [form, setForm] = useState({
     name: "",
     surname: "",
@@ -170,7 +170,7 @@ export default function Edit() {
     };
 
     // This will send a post request to update the data in the database.
-    await fetch(`https://lemurpromanagement-mdg.app/update/${params.id}`, {
+    await fetch(`https://lemurpromanagement-mdg.app/updatepreselectPlayer/${params.id}`, {
       method: "POST",
       body: JSON.stringify(editedPerson),
       headers: {
