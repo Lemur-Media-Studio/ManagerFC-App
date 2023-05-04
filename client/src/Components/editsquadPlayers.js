@@ -18,6 +18,8 @@ import {
   fisicoValues,
   gkValues,
   contractValues,
+  contractSituation,
+  interest,
 } from "../Utils/playersInfo";
 //import InputLabel from "@mui/material/InputLabel";
 //import Select from "@mui/material/Select";
