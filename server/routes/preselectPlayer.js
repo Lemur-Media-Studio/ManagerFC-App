@@ -91,7 +91,7 @@ recordRoutes.route("/preselectPlayer/add").post(function (req, response) {
 });
 
 // This section will help you update a record by id.
-recordRoutes.route("/update/:id").post(function (req, response) {
+recordRoutes.route("/updatepreselectPlayer/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   let newvalues = {
@@ -151,7 +151,7 @@ recordRoutes.route("/update/:id").post(function (req, response) {
 });
 
 // This section will help you delete a record
-recordRoutes.route("/:id").delete((req, response) => {
+recordRoutes.route("/deletePreselect/:id").delete((req, response) => {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   db_connect.collection("preselectPlayers").deleteOne(myquery, function (err, obj) {
