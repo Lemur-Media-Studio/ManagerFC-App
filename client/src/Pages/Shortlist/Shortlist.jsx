@@ -189,7 +189,7 @@ const RecordDEL = (props) => (
         <Button
 
           as={Link}
-          to={`/edit/${props.record._id}`}
+          to={`/edit-shortlisted-player/${props.record._id}`}
 
 
         >
