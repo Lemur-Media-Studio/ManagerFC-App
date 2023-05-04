@@ -92,7 +92,7 @@ export default function EditpreselectPlayer() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
-      const response = await fetch(`https://lemurpromanagement-mdg.app/updatepreselectPlayer/${params.id.toString()}`);
+      const response = await fetch(`https://lemurpromanagement-mdg.app/preselectPlayer/${params.id.toString()}`);
 
       if (!response.ok) {
         const message = `An error has occured: ${response.statusText}`;
