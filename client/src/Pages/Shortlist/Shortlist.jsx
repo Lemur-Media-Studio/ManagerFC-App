@@ -255,7 +255,7 @@ export default function Shortlist() {
 
   // This method will delete a player
   async function deleteRecord(id) {
-    await fetch(`https://lemurpromanagement-mdg.app/${id}`, {
+    await fetch(`https://lemurpromanagement-mdg.app//deletePreselect/${id}`, {
       method: "DELETE",
     });
 
