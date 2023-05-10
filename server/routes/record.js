@@ -150,27 +150,6 @@ recordRoutes.route("/update/:id").post(function (req, response) {
     });
 });
 
-// This section will help you update a record by id.
-recordRoutes.route("/updateTitu/:id").post(function (req, response) {
-  let db_connect = dbo.getDb();
-  let myquery = { _id: ObjectId(req.params.id) };
-  let newvalues = {
-    $set: {
-      titu: req.body.titu,
-    },
-  };
-  db_connect
-    .collection("records")
-    .updateOne(myquery, newvalues, function (err, res) {
-      if (err) throw err;
-      console.log("player to titu");
-      response.json(res);
-    });
-});
-
-
-
-
 // This section will help you delete a record
 recordRoutes.route("/:id").delete((req, response) => {
   let db_connect = dbo.getDb();
