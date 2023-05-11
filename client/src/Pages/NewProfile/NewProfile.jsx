@@ -170,6 +170,9 @@ export default function NewProfile() {
         noValidate
         autoComplete="off"
       >
+
+        <h1 className="page-title">NUEVO PRESELECCIONADO</h1>
+
         <h2>DATOS PERSONALES</h2>
 
         <TextField
@@ -191,7 +194,6 @@ export default function NewProfile() {
 
         <TextField
           sx={{ width: "24ch" }}
-          required
           label="IMG"
           id="img"
           value={form.img}
@@ -220,7 +222,6 @@ export default function NewProfile() {
 
         <TextField
           sx={{ width: "24ch" }}
-          required
           id="outlined-select-currency"
           select
           label="Nacionalidad"
@@ -240,7 +241,6 @@ export default function NewProfile() {
         </TextField>
         <TextField
           sx={{ width: "24ch" }}
-          required
           id="outlined-select-currency"
           select
           label="Segunda nacionalidad"
@@ -261,7 +261,6 @@ export default function NewProfile() {
 
         <TextField
           sx={{ width: "24ch" }}
-          required
           id="outlined-select-currency"
           select
           label="Idiomas"
@@ -276,7 +275,6 @@ export default function NewProfile() {
         </TextField>
         <TextField
           sx={{ width: "24ch" }}
-          required
           id="outlined-select-currency"
           select
           label="Estado Civil"
@@ -291,7 +289,6 @@ export default function NewProfile() {
         </TextField>
         <TextField
           sx={{ width: "24ch" }}
-          required
           id="outlined-select-currency"
           select
           label="Hijos"
@@ -325,7 +322,6 @@ export default function NewProfile() {
 
         <TextField
           sx={{ width: "24ch" }}
-          required
           id="outlined-select-currency"
           select
           label="Posicion secundaria"
@@ -341,7 +337,6 @@ export default function NewProfile() {
 
         <TextField
           sx={{ width: "24ch" }}
-          required
           id="outlined-select-currency"
           select
           label="Perfil habil"
@@ -519,7 +514,6 @@ export default function NewProfile() {
 
         <TextField
           sx={{ width: { xs: "30ch", sm: "24ch" } }}
-          required
           label="Agente"
           id="Agente"
           value={form.agente}
@@ -528,7 +522,6 @@ export default function NewProfile() {
 
         <TextField
           sx={{ width: { xs: "30ch", sm: "24ch" } }}
-          required
           label="Club actual"
           id="Club actual"
           value={form.agente}
@@ -537,7 +530,6 @@ export default function NewProfile() {
 
         <TextField
           sx={{ width: "24ch" }}
-          required
           id="outlined-select-currency"
           select
           label="Situación contractual"
@@ -553,7 +545,6 @@ export default function NewProfile() {
 
         <TextField
           sx={{ width: "24ch" }}
-          required
           id="outlined-select-currency"
           select
           label="¿Requiere piso del club?"
@@ -569,7 +560,6 @@ export default function NewProfile() {
 
         <TextField
           sx={{ width: "24ch" }}
-          required
           id="outlined-select-currency"
           select
           label="Interés en el traspaso"
@@ -588,7 +578,6 @@ export default function NewProfile() {
         <h2>CONTACTO Y LINKS</h2>
         <TextField
           sx={{ width: "24ch" }}
-          required
           label={<Phone />}
           id="img"
           value={form.phone}
@@ -596,7 +585,6 @@ export default function NewProfile() {
         />
         <TextField
           sx={{ width: "24ch" }}
-          required
           label={<AlternateEmail />}
           id="img"
           value={form.email}
@@ -607,7 +595,6 @@ export default function NewProfile() {
         </FormLabel>
         <TextField
           sx={{ width: "24ch" }}
-          required
           label={<FacebookIcon />}
           id="img"
           value={form.face}
@@ -615,7 +602,6 @@ export default function NewProfile() {
         />
         <TextField
           sx={{ width: "24ch" }}
-          required
           label={<Instagram />}
           id="img"
           value={form.ig}
@@ -623,7 +609,6 @@ export default function NewProfile() {
         />
         <TextField
           sx={{ width: "24ch" }}
-          required
           label={<Twitter />}
           id="img"
           value={form.tw}
@@ -634,7 +619,6 @@ export default function NewProfile() {
         </FormLabel>
         <TextField
           sx={{ width: "24ch" }}
-          required
           label="Transfermarkt"
           id="img"
           value={form.tf}
@@ -642,7 +626,6 @@ export default function NewProfile() {
         />
         <TextField
           sx={{ width: "24ch" }}
-          required
           label="Besoccer"
           id="img"
           value={form.bs}
@@ -650,7 +633,6 @@ export default function NewProfile() {
         />
         <TextField
           sx={{ width: "24ch" }}
-          required
           label={<YouTube />}
           id="img"
           value={form.yt}
