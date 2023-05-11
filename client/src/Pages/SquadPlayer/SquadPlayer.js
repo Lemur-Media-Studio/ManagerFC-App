@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
-  Button,
+  Button, Container,
 } from "@mui/material";
 
 // Tables imports
@@ -31,7 +31,7 @@ const RecordPOR = (props) => (
     <TableRow
 
     >
-      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} to={`/detail/${props.record._id}`}>
+      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} className='player-name-table' to={`/detail/${props.record._id}`}>
         {props.record.name + " " + props.record.surname}
 
       </TableCell>
@@ -81,7 +81,7 @@ const RecordDEF = (props) => (
     <TableRow
 
     >
-      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} to={`/detail/${props.record._id}`}>
+      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} className='player-name-table' to={`/detail/${props.record._id}`}>
         {props.record.name + " " + props.record.surname}
 
       </TableCell>
@@ -131,7 +131,7 @@ const RecordMED = (props) => (
     <TableRow
 
     >
-      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} to={`/detail/${props.record._id}`}>
+      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} className='player-name-table' to={`/detail/${props.record._id}`}>
         {props.record.name + " " + props.record.surname}
 
       </TableCell>
@@ -181,7 +181,7 @@ const RecordDEL = (props) => (
     <TableRow
 
     >
-      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} to={`/detail/${props.record._id}`}>
+      <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} className='player-name-table' to={`/detail/${props.record._id}`}>
         {props.record.name + " " + props.record.surname}
 
       </TableCell>
@@ -335,35 +335,37 @@ export default function SquadPlayer() {
   return (
     <>
 
-      <h1>Plantilla</h1>
-      <div className="buscar">
-        <Input placeholder="Buscar por Nombre" onChange={(e) => setSearch(e.target.value)}></Input>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-        </svg>
-      </div>
+      <h1 className="page-title">PLANTILLA</h1>
 
       <Loading loading={isLoading}>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 400, backgroundColor: '#190e43' }} aria-label="simple table">
-            <TableHead>
-              <TableRow >
-                <TableCell sx={{ color: 'white' }}>Nombre</TableCell>
-                <TableCell align="left"></TableCell>
-                <TableCell sx={{ color: 'white' }} align="center">Posición</TableCell>
-                <TableCell sx={{ color: 'white' }} align="center">Edad</TableCell>
-                <TableCell sx={{ color: 'white' }} align="center">Nacionalidad</TableCell>
-                <TableCell sx={{ color: 'white' }} align="center">Borrar</TableCell>
-              </TableRow>
-            </TableHead>
+        <Container>
+          <div className="buscar">
+            <Input className="input-filter-table" placeholder="Buscar por Nombre" onChange={(e) => setSearch(e.target.value)}></Input>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+          </div>
+          <TableContainer>
+            <Table sx={{ minWidth: 400, backgroundColor: '#190e43' }} aria-label="simple table" className="table-players">
+              <TableHead>
+                <TableRow >
+                  <TableCell sx={{ color: 'white' }}>Nombre</TableCell>
+                  <TableCell align="left"></TableCell>
+                  <TableCell sx={{ color: 'white' }} align="center">Posición</TableCell>
+                  <TableCell sx={{ color: 'white' }} align="center">Edad</TableCell>
+                  <TableCell sx={{ color: 'white' }} align="center">Nacionalidad</TableCell>
+                  <TableCell sx={{ color: 'white' }} align="center">Borrar</TableCell>
+                </TableRow>
+              </TableHead>
 
-            {recordListPOR()}
-            {recordListDEF()}
-            {recordListMED()}
-            {recordListDEL()}
+              {recordListPOR()}
+              {recordListDEF()}
+              {recordListMED()}
+              {recordListDEL()}
 
-          </Table>
-        </TableContainer>
+            </Table>
+          </TableContainer>
+        </Container>
 
       </Loading>
     </>
