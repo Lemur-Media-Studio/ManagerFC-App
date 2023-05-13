@@ -68,6 +68,8 @@ export default function NewProfile() {
     gol: "",
     cpo: "",
     gll: "",
+    reqpiso:"",
+    it:"",
     sc: "",
     cp: "",
     ca: "",
@@ -141,6 +143,8 @@ export default function NewProfile() {
       gol: "",
       cpo: "",
       gll: "",
+      reqpiso:"",
+      it:"",
       sc: "",
       cp: "",
       ca: "",
@@ -524,8 +528,8 @@ export default function NewProfile() {
           sx={{ width: { xs: "30ch", sm: "24ch" } }}
           label="Club actual"
           id="Club actual"
-          value={form.agente}
-          onChange={(e) => updateForm({ agente: e.target.value })}
+          value={form.ca}
+          onChange={(e) => updateForm({ ca: e.target.value })}
         />
 
         <TextField
@@ -533,8 +537,8 @@ export default function NewProfile() {
           id="outlined-select-currency"
           select
           label="Situación contractual"
-          value={form.ph}
-          onChange={(e) => updateForm({ ph: e.target.value })}
+          value={form.sc}
+          onChange={(e) => updateForm({ sc: e.target.value })}
         >
           {contractSituation.map((option) => (
             <MenuItem key={option.value} className='dropdown-item' value={option.value}>
@@ -548,8 +552,8 @@ export default function NewProfile() {
           id="outlined-select-currency"
           select
           label="¿Requiere piso del club?"
-          value={form.ph}
-          onChange={(e) => updateForm({ ph: e.target.value })}
+          value={form.reqpiso}
+          onChange={(e) => updateForm({ reqpiso: e.target.value })}
         >
           {childsValues.map((option) => (
             <MenuItem key={option.value} className='dropdown-item' value={option.value}>
@@ -563,8 +567,8 @@ export default function NewProfile() {
           id="outlined-select-currency"
           select
           label="Interés en el traspaso"
-          value={form.ph}
-          onChange={(e) => updateForm({ ph: e.target.value })}
+          value={form.it}
+          onChange={(e) => updateForm({ it: e.target.value })}
         >
           {interest.map((option) => (
             <MenuItem key={option.value} className='dropdown-item' value={option.value}>
