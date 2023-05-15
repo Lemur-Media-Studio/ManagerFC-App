@@ -164,7 +164,7 @@ export default function EditpreselectPlayer() {
       sc: form.sc,
       cp: form.cp,
       ca: form.ca,
-      phone: form.ph,
+      phone: form.phone,
       email: form.email,
       face: form.face,
       ig: form.ig,
