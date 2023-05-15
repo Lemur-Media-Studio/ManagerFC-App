@@ -210,7 +210,13 @@ const RecordDEL = (props) => (
 
           onClick={() => {
             props.deleteRecord(props.record._id);
-          }}
+            
+          }
+        
+        
+        
+        }
+        
 
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark-x-fill" viewBox="0 0 16 16">
@@ -261,6 +267,10 @@ export default function Shortlist() {
 
     const newRecords = records.filter((el) => el._id !== id);
     setRecords(newRecords);
+    window.alert("se elimino con éxito el jugador")
+ 
+
+
   }
 
 
@@ -336,7 +346,6 @@ export default function Shortlist() {
     <>
 
       <h1 className="page-title">PRESELECCIÓN</h1>
-
       <Loading loading={isLoading}>
         <Container>
           <div className="buscar">

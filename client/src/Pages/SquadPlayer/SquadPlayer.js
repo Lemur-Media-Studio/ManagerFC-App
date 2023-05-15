@@ -24,6 +24,8 @@ function calculateAge(dateString) {
   return ~~((Date.now() - birthday) / (31557600000));
 }
 
+
+
 // List only POR players function
 const RecordPOR = (props) => (
   <TableBody>
@@ -261,6 +263,7 @@ export default function SquadPlayer() {
 
     const newRecords = records.filter((el) => el._id !== id);
     setRecords(newRecords);
+    window.alert("se elimino con éxito el jugador")
   }
 
 
