@@ -12,10 +12,10 @@ const dbo = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
 
 // This section will help you get a list of all the records.
-recordRoutes.route("/fixture").get(function (req, res) {
+recordRoutes.route("/lineup").get(function (req, res) {
   let db_connect = dbo.getDb("employees");
   db_connect
-    .collection("fixture")
+    .collection("lineup")
     .find({})
     .toArray(function (err, result) {
       if (err) throw err;
@@ -26,17 +26,17 @@ recordRoutes.route("/fixture").get(function (req, res) {
 });
 
 // This section will help you get a single record by id
-recordRoutes.route("/fixture/:id").get(function (req, res) {
+recordRoutes.route("/lineup/:id").get(function (req, res) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
-  db_connect.collection("fixture").findOne(myquery, function (err, result) {
+  db_connect.collection("lineup").findOne(myquery, function (err, result) {
     if (err) throw err;
     res.json(result);
   });
 });
 
 // This section will help you create a new record.
-recordRoutes.route("/fixture/add").post(function (req, response) {
+recordRoutes.route("/lineup/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
     name: req.body.name,
@@ -44,7 +44,7 @@ recordRoutes.route("/fixture/add").post(function (req, response) {
     p:req.body.p,
     d:req.body.d
   };
-  db_connect.collection("fixture").insertOne(myobj, function (err, res) {
+  db_connect.collection("lineup").insertOne(myobj, function (err, res) {
     if (err) throw err;
     response.json(res);
 
@@ -52,7 +52,7 @@ recordRoutes.route("/fixture/add").post(function (req, response) {
 });
 
 // This section will help you update a record by id.
-recordRoutes.route("/updateFixture/:id").post(function (req, response) {
+recordRoutes.route("/updateLineup/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   let newvalues = {
@@ -65,7 +65,7 @@ recordRoutes.route("/updateFixture/:id").post(function (req, response) {
     },
   };
   db_connect
-    .collection("fixture")
+    .collection("lineup")
     .updateOne(myquery, newvalues, function (err, res) {
       if (err) throw err;
       console.log("1 document updated");
@@ -77,7 +77,7 @@ recordRoutes.route("/updateFixture/:id").post(function (req, response) {
 recordRoutes.route("/:id").delete((req, response) => {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
-  db_connect.collection("fixture").deleteOne(myquery, function (err, obj) {
+  db_connect.collection("lineup").deleteOne(myquery, function (err, obj) {
     if (err) throw err;
     console.log("1 document deleted " + req.params.id);
     response.json(obj);
