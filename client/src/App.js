@@ -14,6 +14,7 @@ import NewProfile from "./Pages/NewProfile/NewProfile";
 import Shortlist from "./Pages/Shortlist/Shortlist";
 import ShortlistedDetails from "./Pages/ShortlistedDetails/ShortlistedDetails";
 import EditpreselectPlayer from "./Components/editsquadPlayers";
+import Footer from "./Components/Footer/Footer";
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/shortlisted-player/:id" element={<ShortlistedDetails />} />
           <Route path="/edit-shortlisted-player/:id" element={<EditpreselectPlayer />} />
         </Routes>
+        <Footer />
       </div>
   
     </div>

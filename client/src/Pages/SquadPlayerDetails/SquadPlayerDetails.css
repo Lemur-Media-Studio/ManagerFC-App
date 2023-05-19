@@ -1,22 +1,15 @@
-.css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root.Mui-selected{
-    color: #9b0181 !important;
-}
-
-.css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root{
-    color: #fff !important;
-}
-
-.css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root.Mui-selected{
-    color: #9b0181 !important;
-}
-
 .playerinfo-container{
     color: rgba(255, 255, 255, 0.425) !important;
     margin-top: 32px !important;
 }
 
-.css-8sq55c-MuiGrid-root{
+.spdetails-title{
+    background-color: #190e43;
+    margin-bottom: 0 !important;
     margin-top: 0 !important;
+    font-size: 22px !important;
+    font-weight: lighter !important;
+    padding: 3px !important;
 }
 
 li{
@@ -31,10 +24,6 @@ li{
     margin: 0 5px !important;
 }
 
-.css-1e6y48t-MuiButtonBase-root-MuiButton-root{
-    color: #9b0181 !important;
-}
-
 .social-link{
     text-decoration: none !important;
     color: #9b0181 !important;
@@ -47,4 +36,18 @@ li{
 .li-inc{
     list-style: circle !important;
     margin-top: 15px !important;
+}
+
+.playerName-h1{
+    font-family: "Inter", sans-serif !important;
+}
+
+.playerPos-h3{
+    font-family: "Inter", sans-serif !important;
+}
+
+.btn-social{
+    color: #9b0181 !important;
+    fill: #9b0181 !important;
+    margin-right: 5px !important;
 }

@@ -48,3 +48,8 @@ li{
     list-style: circle !important;
     margin-top: 15px !important;
 }
+
+.sd-contract{
+    display: flex !important;
+    justify-content: center !important;
+}

@@ -18,14 +18,14 @@ function Home(){
             wrap="wrap"
             justifyContent="center"
             textAlign="left"
-            sx={{ mt: -40 }}
+            sx={{ mt: -45 }}
             >
                 <Grid xs={12} sm={4}>
                     <h1 className='home-title'>BIENVENIDO A TU ASISTENTE PERSONAL</h1>
                     <h2 className='home-subtitle'>Administra rápidamente tu plantilla</h2>
-                    <div>
-                        <Button as={Link} to={'/squad'} className='btn-home'>Ir a Plantilla</Button>
+                    <div className='home-btn-container'>
                         <Button as={Link} to={'/add-to-squad'} className='btn-home'>Agregar a Plantilla</Button>
+                        <Button as={Link} to={'/new-profile'} className='btn-home'>Agregar a Preselección</Button>
                     </div>
                 </Grid>
             
