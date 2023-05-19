@@ -228,10 +228,10 @@ export default function ShortlistedDetails() {
 
     <ul>
       <li>Agente: {form.agente}</li>
-      <li>Club propietario: {form.sb}</li>
-      <li>Situación contractual: {form.com}</li>
-      <li>Requiere piso: {form.fin}</li>
-      <li>Interés en el traspaso: {form.ss}</li>
+      <li>Club propietario: {form.ca}</li>
+      <li>Situación contractual: {form.sc}</li>
+      <li>Requiere piso: {form.reqpiso}</li>
+      <li>Interés en el traspaso: {form.it}</li>
     </ul>
   </Grid>
   </Grid>
