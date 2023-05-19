@@ -246,7 +246,7 @@ export default function ShortlistedDetails() {
     wrap="wrap"
     justifyContent="center"
     textAlign="left"
-    sx={{ mt: 4 }}
+    sx={{ mt: 0 }}
     >
     <Grid xs={4}>
     <FormLabel
@@ -303,7 +303,7 @@ export default function ShortlistedDetails() {
       wrap="wrap"
       justifyContent="center"
       textAlign="left"
-      sx={{ mt: 4 }}
+      sx={{ mt: 0 }}
       >
         <ul>
           <li className='li-inc'>{form.inci}</li>
