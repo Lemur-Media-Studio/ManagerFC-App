@@ -19,6 +19,9 @@ import Input from '@mui/material/Input';
 
 
 
+
+
+
 function calculateAge(dateString) {
   var birthday = +new Date(dateString);
   return ~~((Date.now() - birthday) / (31557600000));
@@ -61,7 +64,7 @@ const RecordPOR = (props) => (
 
 
           onClick={() => {
-            props.deleteRecord(props.record._id);
+            props.deleteRecord(props.record._id + props.record.name + props.record.surname);
           }}
 
         >
@@ -111,7 +114,7 @@ const RecordDEF = (props) => (
 
 
           onClick={() => {
-            props.deleteRecord(props.record._id);
+            props.deleteRecord(props.record._id + props.record.name + props.record.surname);
           }}
 
         >
@@ -161,7 +164,7 @@ const RecordMED = (props) => (
 
 
           onClick={() => {
-            props.deleteRecord(props.record._id);
+            props.deleteRecord(props.record._id + props.record.name + props.record.surname);
           }}
 
         >
@@ -211,7 +214,7 @@ const RecordDEL = (props) => (
 
 
           onClick={() => {
-            props.deleteRecord(props.record._id);
+            props.deleteRecord(props.record._id + props.record.name + props.record.surname);
           }}
 
         >
@@ -256,14 +259,21 @@ export default function SquadPlayer() {
   }, [records.length]);
 
   // This method will delete a player
-  async function deleteRecord(id) {
-    await fetch(`https://lemurpromanagement-mdg.app/${id}`, {
-      method: "DELETE",
-    });
+  async function deleteRecord(id, name, surname) {
+    if (window.confirm('¿Esta seguro que desea eliminar el jugador ' +  name + ' ' + surname + ' ?')){
 
-    const newRecords = records.filter((el) => el._id !== id);
-    setRecords(newRecords);
-    window.alert("se elimino con éxito el jugador")
+      await fetch(`https://lemurpromanagement-mdg.app/${id}`, {
+        method: "DELETE",
+        
+      });
+      const newRecords = records.filter((el) => el._id !== id);
+      setRecords(newRecords);
+
+   
+      
+     
+
+    }
   }
 
 
@@ -275,9 +285,10 @@ export default function SquadPlayer() {
         return (
           <RecordPOR
             record={record}
-            deleteRecord={() => deleteRecord(record._id)}
+            deleteRecord={() => deleteRecord(record._id, record.name, record.surname)}
             key={record._id}
           />
+          
         );
       }
     });
@@ -291,7 +302,7 @@ export default function SquadPlayer() {
         return (
           <RecordDEF
             record={record}
-            deleteRecord={() => deleteRecord(record._id)}
+            deleteRecord={() => deleteRecord(record._id, record.name, record.surname)}
             key={record._id}
           />
         );
@@ -307,7 +318,7 @@ export default function SquadPlayer() {
         return (
           <RecordMED
             record={record}
-            deleteRecord={() => deleteRecord(record._id)}
+            deleteRecord={() => deleteRecord(record._id, record.name, record.surname)}
             key={record._id}
           />
         );
@@ -323,7 +334,7 @@ export default function SquadPlayer() {
         return (
           <RecordDEL
             record={record}
-            deleteRecord={() => deleteRecord(record._id)}
+            deleteRecord={() => deleteRecord(record._id, record.name, record.surname)}
             key={record._id}
           />
         );
@@ -348,6 +359,7 @@ export default function SquadPlayer() {
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
             </svg>
           </div>
+     
           <TableContainer>
             <Table sx={{ minWidth: 400, backgroundColor: '#190e43' }} aria-label="simple table" className="table-players">
               <TableHead>
