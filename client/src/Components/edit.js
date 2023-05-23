@@ -26,6 +26,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 import {
   AlternateEmail,
+  FourMp,
   Instagram,
   Phone,
   Twitter,
@@ -192,23 +193,64 @@ export default function Edit() {
       ph: form.ph,
       alt: form.alt,
       peso: form.peso,
-      pesoI: form.pesoI,
+      
+      //tecnicoValues
+      tec: form.tec,
+      tec1: form.tec1,
+      tec2: form.tec2,
+      tec3: form.tec3,
+      tec4: form.tec4,
+      tec5: form.tec5,
+      tec6: form.tec6,
+      tec7: form.tec7,
+      tec8: form.tec8,
+      tec9: form.tec9,
+      tec10: form.tec10,
+      tec11: form.tec11,
+      tec12: form.tec12,
+      tec13: form.tec13,
+      tec14: form.tec14,
 
-      tec: [form.tec1, form.tec2, form.tec3, form.tec4, form.tec5, form.tec6,
-        form.tec7, form.tec8, form.tec9, form.tec10, form.tec11, form.tec12, 
-        form.tec13, form.tec14],
-  
-      fisico: [form.fi1, form.fi2, form.fi3, form.fi4, form.fi5, form.fi6,
-        form.fi7, form.fi8],
-  
-  
-      mental: [form.men1, form.men2, form.men3, form.men4, form.men5, form.men6,
-        form.men7, form.men8, form.men9, form.men10, form.men11, form.men12, 
-        form.men13, form.men14, form.men15],
-  
-  
-      gk: [form.por1, form.por2, form.por3, form.por4, form.por5, form.por6,
-        form.por7],
+      //fisicoValues
+      fisico: form.fisico,
+      fi1: form.fi1,
+      fi2: form.fi2,
+      fi3: form.fi3,
+      fi4: form.fi4,
+      fi5: form.fi5,
+      fi6: form.fi6,
+      fi7: form.fi7,
+      fi8: form.fi8,
+
+      //mentalValues
+      mental: form.mental,
+      men1:form.men1,
+      men2:form.men2,
+      men3:form.men3,
+      men4:form.men4,
+      men5:form.men5,
+      men6:form.men6,
+      men7:form.men7,
+      men8:form.men8,
+      men9:form.men9,
+      men10:form.men10,
+      men11:form.men11,
+      men12:form.men12,
+      men13:form.men13,
+      men14:form.men14,
+      men15:form.men15,
+
+      //gkValues
+      gk: form.gk,
+      por1:form.por1,
+      por2:form.por2,
+      por3:form.por3,
+      por4:form.por4,
+      por5:form.por5,
+      por6:form.por6,
+      por7:form.por7,
+
+
       c: form.c,
       sb: form.sb,
       ss: form.ss,
