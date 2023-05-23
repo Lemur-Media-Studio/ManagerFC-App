@@ -55,10 +55,10 @@ recordRoutes.route("/record/add").post(function (req, response) {
     ph: req.body.ph,
     alt: req.body.alt,
     peso: req.body.peso,
-    
+
     tec: [req.body.tec1, req.body.tec2, req.body.tec3, req.body.tec4, req.body.tec5, req.body.tec6,
       req.body.tec7, req.body.tec8, req.body.tec9, req.body.tec10, req.body.tec11, req.body.tec12, 
-      req.body.tec13, req.body.tec14, req.body.tec15],
+      req.body.tec13, req.body.tec14],
 
     fisico: [req.body.fi1, req.body.fi2, req.body.fi3, req.body.fi4, req.body.fi5, req.body.fi6,
       req.body.fi7, req.body.fi8],
@@ -128,7 +128,7 @@ recordRoutes.route("/update/:id").post(function (req, response) {
 
       tec: [req.body.tec1, req.body.tec2, req.body.tec3, req.body.tec4, req.body.tec5, req.body.tec6,
         req.body.tec7, req.body.tec8, req.body.tec9, req.body.tec10, req.body.tec11, req.body.tec12, 
-        req.body.tec13, req.body.tec14, req.body.tec15],
+        req.body.tec13, req.body.tec14],
 
       fisico: [req.body.fi1, req.body.fi2, req.body.fi3, req.body.fi4, req.body.fi5, req.body.fi6,
         req.body.fi7, req.body.fi8],

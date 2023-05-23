@@ -55,10 +55,22 @@ recordRoutes.route("/preselectPlayer/add").post(function (req, response) {
     ph: req.body.ph,
     alt: req.body.alt,
     peso: req.body.peso,
-    tec: req.body.level,
-    fisico: req.body.fisico,
-    mental: req.body.mental,
-    gk: req.body.gk,
+
+    tec: [req.body.tec1, req.body.tec2, req.body.tec3, req.body.tec4, req.body.tec5, req.body.tec6,
+      req.body.tec7, req.body.tec8, req.body.tec9, req.body.tec10, req.body.tec11, req.body.tec12, 
+      req.body.tec13, req.body.tec14],
+
+    fisico: [req.body.fi1, req.body.fi2, req.body.fi3, req.body.fi4, req.body.fi5, req.body.fi6,
+      req.body.fi7, req.body.fi8],
+
+
+    mental: [req.body.men1, req.body.men2, req.body.men3, req.body.men4, req.body.men5, req.body.men6,
+      req.body.men7, req.body.men8, req.body.men9, req.body.men10, req.body.men11, req.body.men12, 
+      req.body.men13, req.body.men14, req.body.men15],
+
+
+    gk: [req.body.por1, req.body.por2, req.body.por3, req.body.por4, req.body.por5, req.body.por6,
+      req.body.por7],
     c: req.body.c,
     sb: req.body.sb,
     ss: req.body.ss,
@@ -114,10 +126,22 @@ recordRoutes.route("/updatepreselectPlayer/:id").post(function (req, response) {
       ph: req.body.ph,
       alt: req.body.alt,
       peso: req.body.peso,
-      tec: req.body.level,
-      fisico: req.body.fisico,
-      mental: req.body.mental,
-      gk: req.body.gk,
+
+      tec: [req.body.tec1, req.body.tec2, req.body.tec3, req.body.tec4, req.body.tec5, req.body.tec6,
+        req.body.tec7, req.body.tec8, req.body.tec9, req.body.tec10, req.body.tec11, req.body.tec12, 
+        req.body.tec13, req.body.tec14],
+  
+      fisico: [req.body.fi1, req.body.fi2, req.body.fi3, req.body.fi4, req.body.fi5, req.body.fi6,
+        req.body.fi7, req.body.fi8],
+  
+  
+      mental: [req.body.men1, req.body.men2, req.body.men3, req.body.men4, req.body.men5, req.body.men6,
+        req.body.men7, req.body.men8, req.body.men9, req.body.men10, req.body.men11, req.body.men12, 
+        req.body.men13, req.body.men14, req.body.men15],
+  
+  
+      gk: [req.body.por1, req.body.por2, req.body.por3, req.body.por4, req.body.por5, req.body.por6,
+        req.body.por7],
       c: req.body.c,
       sb: req.body.sb,
       ss: req.body.ss,

@@ -54,10 +54,63 @@ export default function Edit() {
     ph: "",
     alt: "",
     peso: "",
+
+    //tecnicoValues
     tec: "",
+    tec1: "",
+    tec2: "",
+    tec3: "",
+    tec4: "",
+    tec5: "",
+    tec6: "",
+    tec7: "",
+    tec8: "",
+    tec9: "",
+    tec10: "",
+    tec11: "",
+    tec12: "",
+    tec13: "",
+    tec14: "",
+
+    //fisicoValues
     fisico: "",
+    fi1: "",
+    fi2: "",
+    fi3: "",
+    fi4: "",
+    fi5: "",
+    fi6: "",
+    fi7: "",
+    fi8: "",
+
+    //mentalValues
     mental: "",
+    men1:"",
+    men2:"",
+    men3:"",
+    men4:"",
+    men5:"",
+    men6:"",
+    men7:"",
+    men8:"",
+    men9:"",
+    men10:"",
+    men11:"",
+    men12:"",
+    men13:"",
+    men14:"",
+    men15:"",
+
+    //gkValues
     gk: "",
+    por1:"",
+    por2:"",
+    por3:"",
+    por4:"",
+    por5:"",
+    por6:"",
+    por7:"",
+
     c: "",
     sb: "",
     ss: "",
@@ -140,10 +193,22 @@ export default function Edit() {
       alt: form.alt,
       peso: form.peso,
       pesoI: form.pesoI,
-      tec: form.tec,
-      fisico: form.fisico,
-      mental: form.mental,
-      gk: form.gk,
+
+      tec: [form.tec1, form.tec2, form.tec3, form.tec4, form.tec5, form.tec6,
+        form.tec7, form.tec8, form.tec9, form.tec10, form.tec11, form.tec12, 
+        form.tec13, form.tec14],
+  
+      fisico: [form.fi1, form.fi2, form.fi3, form.fi4, form.fi5, form.fi6,
+        form.fi7, form.fi8],
+  
+  
+      mental: [form.men1, form.men2, form.men3, form.men4, form.men5, form.men6,
+        form.men7, form.men8, form.men9, form.men10, form.men11, form.men12, 
+        form.men13, form.men14, form.men15],
+  
+  
+      gk: [form.por1, form.por2, form.por3, form.por4, form.por5, form.por6,
+        form.por7],
       c: form.c,
       sb: form.sb,
       ss: form.ss,
@@ -418,25 +483,37 @@ export default function Edit() {
               component="legend"
               className="attributes-label"
             >
-              TÉCNICO
+               TÉCNICO
             </FormLabel>
             <ul>
-              {tecnicoValues.map((option) => (
-                <li key={option.value}>
+              <li><FormControlLabel label="Cabeceo" control={<Checkbox value="Cabeceo" onChange={(e) => updateForm({ tec1: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Centros" control={<Checkbox value="Centros" onChange={(e) => updateForm({ tec2: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Control" control={<Checkbox value="Control" onChange={(e) => updateForm({ tec3: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Entradas" control={<Checkbox value="Entradas" onChange={(e) => updateForm({ tec4: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Marcaje" control={<Checkbox value="Marcaje" onChange={(e) => updateForm({ tec5: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Pases" control={<Checkbox value="Pases" onChange={(e) => updateForm({ tec6: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Penalties" control={<Checkbox value="Penalties" onChange={(e) => updateForm({ tec7: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Regate" control={<Checkbox value="Regate" onChange={(e) => updateForm({ tec8: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Remate" control={<Checkbox value="Remate" onChange={(e) => updateForm({ tec9: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Saques de esquina" control={<Checkbox value="Saques de esquina" onChange={(e) => updateForm({ tec10: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Técnica" control={<Checkbox value="Técnica" onChange={(e) => updateForm({ tec11: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Tiros lejanos" control={<Checkbox value="Tiros lejanos" onChange={(e) => updateForm({ tec12: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Tiros Libres" control={<Checkbox value="Tiros Libres" onChange={(e) => updateForm({ tec13: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Uno contra uno" control={<Checkbox value="Uno contra uno" onChange={(e) => updateForm({ tec14: e.target.value })}></Checkbox>}></FormControlLabel></li>
+
+              {/*{tecnicoValues.map((option) => (
+                <li>
                   <FormControlLabel
                     value={option.value}
-                    control={
-                      <Checkbox
-                        checked={form.tec === option.value}
-                        onChange={(e) =>
-                          updateForm({ tec: e.target.value })
-                        }
-                      />
-                    }
+                    control={<Checkbox value={option.value} checked={(option.value)} onChange={(e) =>
+                      updateForm({ tec: e.target.value })
+                    } />}
                     label={option.value}
+                    labelPlacement="right"
                   />
                 </li>
-              ))}
+              ))}  */
+              }
             </ul>
           </Grid>
 
@@ -449,22 +526,14 @@ export default function Edit() {
               FISICO
             </FormLabel>
             <ul>
-              {fisicoValues.map((option) => (
-                <li key={option.value}>
-                  <FormControlLabel
-                    value={option.value}
-                    control={
-                      <Checkbox
-                        checked={form.fisico === option.value}
-                        onChange={(e) =>
-                          updateForm({ fisico: e.target.value })
-                        }
-                      />
-                    }
-                    label={option.value}
-                  />
-                </li>
-              ))}
+              <li><FormControlLabel label="Aceleración" control={<Checkbox value="Aceleración" onChange={(e) => updateForm({ fi1: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Agilidad" control={<Checkbox value="Agilidad" onChange={(e) => updateForm({ fi2: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Alcance de salto" control={<Checkbox value="Alcance de salto" onChange={(e) => updateForm({ fi3: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Equilibrio" control={<Checkbox value="Equilibrio" onChange={(e) => updateForm({ fi4: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Fuerza" control={<Checkbox value="Fuerza" onChange={(e) => updateForm({ fi5: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Recuperación física" control={<Checkbox value="Recuperación física" onChange={(e) => updateForm({ fi6: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Resistencia" control={<Checkbox value="Resistencia" onChange={(e) => updateForm({ fi7: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Velocidad" control={<Checkbox value="Velocidad" onChange={(e) => updateForm({ fi8: e.target.value })}></Checkbox>}></FormControlLabel></li>
             </ul>
           </Grid>
           <Grid xs={3}>
@@ -476,22 +545,21 @@ export default function Edit() {
               MENTAL
             </FormLabel>
             <ul>
-              {mentalValues.map((option) => (
-                <li key={option.value}>
-                  <FormControlLabel
-                    value={option.value}
-                    control={
-                      <Checkbox
-                        checked={form.mental === option.value}
-                        onChange={(e) =>
-                          updateForm({ mental: e.target.value })
-                        }
-                      />
-                    }
-                    label={option.value}
-                  />
-                </li>
-              ))}
+            <li><FormControlLabel label="Blocaje" control={<Checkbox value="Blocaje" onChange={(e) => updateForm({ men1: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Comunicación" control={<Checkbox value="Comunicación" onChange={(e) => updateForm({ men2: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Excentricidad" control={<Checkbox value="Excentricidad" onChange={(e) => updateForm({ men3: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Agresividad" control={<Checkbox value="Agresividad" onChange={(e) => updateForm({ men4: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Anticipación" control={<Checkbox value="Anticipación" onChange={(e) => updateForm({ men5: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Colocación" control={<Checkbox value="Colocación" onChange={(e) => updateForm({ men6: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Decisiones" control={<Checkbox value="Decisiones" onChange={(e) => updateForm({ men7: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Desmarques" control={<Checkbox value="Desmarques" onChange={(e) => updateForm({ men8: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Determinación" control={<Checkbox value="Determinación" onChange={(e) => updateForm({ men9: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Juego en equipo" control={<Checkbox value="Juego en equipo" onChange={(e) => updateForm({ men10: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Liderazgo" control={<Checkbox value="Liderazgo" onChange={(e) => updateForm({ men11: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Sacrificio" control={<Checkbox value="Sacrificio" onChange={(e) => updateForm({ men12: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Talento" control={<Checkbox value="Talento" onChange={(e) => updateForm({ men13: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Valentía" control={<Checkbox value="Valentía" onChange={(e) => updateForm({ men14: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Visión" control={<Checkbox value="Visión" onChange={(e) => updateForm({ men15: e.target.value })}></Checkbox>}></FormControlLabel></li>
             </ul>
           </Grid>
           <Grid xs={3}>
@@ -503,23 +571,15 @@ export default function Edit() {
               PORTERO
             </FormLabel>
             <ul>
-              {gkValues.map((option) => (
-                <li key={option.value}>
-                  <FormControlLabel
-                    value={option.value}
-                    control={
-                      <Checkbox
-                        checked={form.gk === option.value}
-                        onChange={(e) =>
-                          updateForm({ gk: e.target.value })
-                        }
-                      />
-                    }
-                    label={option.value}
-                  />
-                </li>
-              ))}
+              <li><FormControlLabel label="Alcance aéreo" control={<Checkbox value="Alcance aéreo" onChange={(e) => updateForm({ por1: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Golpeo de puños" control={<Checkbox value="Golpeo de puños" onChange={(e) => updateForm({ por2: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Mando en el area" control={<Checkbox value="Mando en el area" onChange={(e) => updateForm({ por3: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Reflejos" control={<Checkbox value="Reflejos" onChange={(e) => updateForm({ por4: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Salidas (tendecia)" control={<Checkbox value="Salidas (tendecia)" onChange={(e) => updateForm({ por5: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Saques con la mano" control={<Checkbox value="Saques con la mano" onChange={(e) => updateForm({ por6: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Saques de puerta" control={<Checkbox value="Saques de puerta" onChange={(e) => updateForm({ por7: e.target.value })}></Checkbox>}></FormControlLabel></li>
             </ul>
+    
           </Grid>
         </Grid>
 
