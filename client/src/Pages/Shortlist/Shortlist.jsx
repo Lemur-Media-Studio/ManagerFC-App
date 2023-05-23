@@ -39,7 +39,7 @@ const RecordPOR = (props) => (
         <Button
 
           as={Link}
-          to={`/edit-shortlisted-player/${props.record._id}`}
+          to={`/edit-shortlisted-player/${props.record._id + props.record.name + props.record.surname}`}
 
 
         >
@@ -59,7 +59,7 @@ const RecordPOR = (props) => (
 
 
           onClick={() => {
-            props.deleteRecord(props.record._id);
+            props.deleteRecord(props.record._id + props.record.name + props.record.surname);
           }}
 
         >
@@ -109,7 +109,7 @@ const RecordDEF = (props) => (
 
 
           onClick={() => {
-            props.deleteRecord(props.record._id);
+            props.deleteRecord(props.record._id + props.record.name + props.record.surname);
           }}
 
         >
@@ -159,7 +159,7 @@ const RecordMED = (props) => (
 
 
           onClick={() => {
-            props.deleteRecord(props.record._id);
+            props.deleteRecord(props.record._id + props.record.name + props.record.surname);
           }}
 
         >
@@ -209,7 +209,7 @@ const RecordDEL = (props) => (
 
 
           onClick={() => {
-            props.deleteRecord(props.record._id);
+            props.deleteRecord(props.record._id + props.record.name + props.record.surname);
             
           }
         
@@ -260,14 +260,17 @@ export default function Shortlist() {
   }, [records.length]);
 
   // This method will delete a player
-  async function deleteRecord(id) {
-    await fetch(`https://lemurpromanagement-mdg.app//deletePreselect/${id}`, {
-      method: "DELETE",
-    });
+  async function deleteRecord(id, name, surname) {
+    if (window.confirm('¿Esta seguro que desea eliminar el jugador ' +  name + ' ' + surname + ' ?')){
+      await fetch(`https://lemurpromanagement-mdg.app//deletePreselect/${id}`, {
+        method: "DELETE",
+      });
+  
+      const newRecords = records.filter((el) => el._id !== id);
+      setRecords(newRecords);
+    
+    }
 
-    const newRecords = records.filter((el) => el._id !== id);
-    setRecords(newRecords);
-    window.alert("se elimino con éxito el jugador")
  
 
 
@@ -282,7 +285,7 @@ export default function Shortlist() {
         return (
           <RecordPOR
             record={record}
-            deleteRecord={() => deleteRecord(record._id)}
+            deleteRecord={() => deleteRecord(record._id, record.name, record.surname)}
             key={record._id}
           />
         );
@@ -298,7 +301,7 @@ export default function Shortlist() {
         return (
           <RecordDEF
             record={record}
-            deleteRecord={() => deleteRecord(record._id)}
+            deleteRecord={() => deleteRecord(record._id, record.name, record.surname)}
             key={record._id}
           />
         );
@@ -314,7 +317,7 @@ export default function Shortlist() {
         return (
           <RecordMED
             record={record}
-            deleteRecord={() => deleteRecord(record._id)}
+            deleteRecord={() => deleteRecord(record._id, record.name, record.surname)}
             key={record._id}
           />
         );
@@ -330,7 +333,7 @@ export default function Shortlist() {
         return (
           <RecordDEL
             record={record}
-            deleteRecord={() => deleteRecord(record._id)}
+            deleteRecord={() => deleteRecord(record._id, record.name, record.surname)}
             key={record._id}
           />
         );
