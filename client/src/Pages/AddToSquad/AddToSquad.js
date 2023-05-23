@@ -158,7 +158,7 @@ export default function AddToSquad() {
   // This following section will display the form that takes the input from the user.
   return (
     <Container sx={{ mt: 5, color: "#fff" }}>
-      
+
       <Box
         className="form-squad"
         component="form"
@@ -169,7 +169,7 @@ export default function AddToSquad() {
         noValidate
         autoComplete="off"
       >
-        
+
         <h1 className="page-title">AÑADIR A PLANTILLA</h1>
 
         <h2>DATOS PERSONALES</h2>
@@ -208,7 +208,7 @@ export default function AddToSquad() {
           InputLabelProps={{ shrink: true, required: true }}
           value={form.fn}
           onChange={(e) => updateForm({ fn: e.target.value })}
-        
+
         />
 
         <TextField
@@ -396,18 +396,15 @@ export default function AddToSquad() {
             </FormLabel>
             <ul>
               {tecnicoValues.map((option) => (
-                <li key={option.value}>
+                <li>
                   <FormControlLabel
                     value={option.value}
-                    control={
-                      <Checkbox
-                        checked={form.tec === option.value}
-                        onChange={(e) =>
-                          updateForm({ tec: e.target.value })
-                        }
-                      />
-                    }
+                    control={<Checkbox />}
                     label={option.value}
+                    onChange={(e) =>
+                      updateForm({ tec: e.target.value })
+                    }
+                    labelPlacement="right"
                   />
                 </li>
               ))}
