@@ -52,6 +52,9 @@ export default function AddToSquad() {
     alt: "",
     peso: "",
     tec: "",
+    uno: "",
+    dos: "",
+    tres: "",
     fisico: "",
     mental: "",
     gk: "",
@@ -125,6 +128,9 @@ export default function AddToSquad() {
       alt: "",
       peso: "",
       tec: "",
+      uno: "",
+      dos: "",
+      tres: "",
       fisico: "",
       mental: "",
       gk: "",
@@ -395,19 +401,35 @@ export default function AddToSquad() {
               TÉCNICO
             </FormLabel>
             <ul>
-              {tecnicoValues.map((option) => (
+              
+                            <li>
+                <Checkbox value="1" onChange={(e)=> updateForm({uno: e.target.value})}></Checkbox>
+              </li>
+              <li>
+                <Checkbox value="2" onChange={(e)=> updateForm({dos: e.target.value})}></Checkbox>
+              </li>
+              <li>
+                <Checkbox value="3" onChange={(e)=> updateForm({tres: e.target.value})}></Checkbox>
+              </li>
+               
+  {/*                            {tecnicoValues.map((option) => (
                 <li>
                   <FormControlLabel
                     value={option.value}
-                    control={<Checkbox />}
-                    label={option.value}
-                    onChange={(e) =>
+                    control={<Checkbox value={option.value} checked={(option.value)} onChange={(e) =>
                       updateForm({ tec: e.target.value })
-                    }
+                    } />}
+                    label={option.value}
+
+
                     labelPlacement="right"
                   />
                 </li>
-              ))}
+              ))}  */
+
+  }
+
+
             </ul>
           </Grid>
 

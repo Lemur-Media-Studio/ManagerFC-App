@@ -55,7 +55,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
     ph: req.body.ph,
     alt: req.body.alt,
     peso: req.body.peso,
-    tec: [req.body.tec],
+    tec: [req.body.uno, req.body.dos, req.body.tres],
     fisico: req.body.fisico,
     mental: req.body.mental,
     gk: req.body.gk,
