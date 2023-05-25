@@ -2,19 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import Box from '@mui/material/Box';
 import Grid from "@mui/material/Grid";
-import CssBaseline from '@mui/material/CssBaseline';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import SdCardAlertIcon from '@mui/icons-material/SdCardAlert';
-import Paper from '@mui/material/Paper';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import "./ShortlistedDetails.css"
 import { Button, Container, FormLabel } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import {
-  AlternateEmail,
   Instagram,
   Phone,
   Twitter,
@@ -97,9 +88,16 @@ export default function ShortlistedDetails() {
     return;
   }, [params.id, navigate]);
 
+  console.log(form.tec)
 
   const [value, setValue] = React.useState();
   const ref = React.useRef(null);
+
+  const showPhysicalAttributes = Array.isArray(form.tec) ? form.fisico.filter(attribute => attribute !== null && attribute !== "").join(' - ') : "";
+  const showTecAttributes = Array.isArray(form.tec) ? form.tec.filter(attribute => attribute !== null && attribute !== "").join(' - ') : "";
+  const showGKAttributes = Array.isArray(form.tec) ? form.gk.filter(attribute => attribute !== null && attribute !== "").join(' - ') : "";
+  const showMentalAttributes = Array.isArray(form.tec) ? form.mental.filter(attribute => attribute !== null && attribute !== "").join(' - ') : "";
+
 
 
   // This following section will display the form that takes input from the user to update the data.
@@ -190,10 +188,8 @@ export default function ShortlistedDetails() {
     </FormLabel>
     <ul>
         <li>Perfil hábil: {form.ph}</li>
-        <li>
-{/*             {form.tec} */}
-          {form.gk}
-        </li>
+        <li>Técnicos: {showTecAttributes} {showGKAttributes}</li>
+        <li>Físicos: {showPhysicalAttributes}</li>
     </ul>
   </Grid>
   <Grid xs={3}>
@@ -206,7 +202,7 @@ export default function ShortlistedDetails() {
     </FormLabel>
     <ul>
         <li>
-          {form.mental}
+          {showMentalAttributes}
         </li>
     </ul>
   </Grid>
@@ -257,8 +253,8 @@ export default function ShortlistedDetails() {
       CONTACTO
     </FormLabel>
     <ul>
-      <li>{form.ph}</li>
-      <li>{form.email}</li>
+      <li>Tel.: {form.phone}</li>
+      <li>Email: {form.email}</li>
     </ul>
   </Grid>
 
@@ -271,9 +267,9 @@ export default function ShortlistedDetails() {
       REDES SOCIALES
     </FormLabel>
     <ul>
-      <li><Button><FacebookIcon className='btn-social' /> <a href={form.fc} className="social-link">Facebook</a></Button></li>
-      <li><Button><Instagram className='btn-social' /> <a href={form.fc} className="social-link">Instagram</a></Button></li>
-      <li><Button><Twitter className='btn-social' /> <a href={form.fc} className="social-link">Twitter</a></Button></li>
+      <li><Button><FacebookIcon className='btn-social' /> <a href={form.fc} rel="noreferrer" target="_blank" className="social-link">Facebook</a></Button></li>
+      <li><Button><Instagram className='btn-social' /> <a href={form.ig} rel="noreferrer" target="_blank" className="social-link">Instagram</a></Button></li>
+      <li><Button><Twitter className='btn-social' /> <a href={form.tw} rel="noreferrer" target="_blank" className="social-link">Twitter</a></Button></li>
     </ul>
   </Grid>
 
@@ -286,8 +282,8 @@ export default function ShortlistedDetails() {
       LINKS
     </FormLabel>
     <ul>
-      <li><Button><a href={form.tf} className="social-link">Transfermarkt</a></Button></li>
-      <li><Button><a href={form.bs} className="social-link">Besoccer</a></Button></li>
+      <li><Button><a href={form.tf} rel="noreferrer" target="_blank" className="social-link">Transfermarkt</a></Button></li>
+      <li><Button><a href={form.bs} rel="noreferrer" target="_blank" className="social-link">Besoccer</a></Button></li>
       <li><Button><YouTube className='btn-social' /> <a href={form.yt} className="social-link">YouTube</a></Button></li>
     </ul>
   </Grid>

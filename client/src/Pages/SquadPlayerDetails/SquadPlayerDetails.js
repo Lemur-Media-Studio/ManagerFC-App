@@ -268,6 +268,11 @@ export default function SquadPlayerDetails() {
       )
   }
 
+  const showPhysicalAttributes = Array.isArray(form.tec) ? form.fisico.filter(attribute => attribute !== null && attribute !== "").join(' - ') : "";
+  const showTecAttributes = Array.isArray(form.tec) ? form.tec.filter(attribute => attribute !== null && attribute !== "").join(' - ') : "";
+  const showGKAttributes = Array.isArray(form.tec) ? form.gk.filter(attribute => attribute !== null && attribute !== "").join(' - ') : "";
+  const showMentalAttributes = Array.isArray(form.tec) ? form.mental.filter(attribute => attribute !== null && attribute !== "").join(' - ') : "";
+
   // This following section will display the form that takes input from the user to update the data.
   return (
   <Container sx={{pb:50}}>
@@ -356,10 +361,8 @@ export default function SquadPlayerDetails() {
       </FormLabel>
       <ul>
           <li>Perfil hábil: {form.ph}</li>
-          <li>
-{/*             {form.tec} */}
-            {form.gk}
-          </li>
+          <li>Técnicos: {showTecAttributes} {showGKAttributes}</li>
+          <li>Físicos: {showPhysicalAttributes}</li>
       </ul>
     </Grid>
     <Grid xs={3}>
@@ -372,7 +375,7 @@ export default function SquadPlayerDetails() {
       </FormLabel>
       <ul>
           <li>
-            {form.mental}
+            {showMentalAttributes}
           </li>
       </ul>
     </Grid>
@@ -446,7 +449,7 @@ export default function SquadPlayerDetails() {
         CONTACTO
       </FormLabel>
       <ul>
-        <li>{form.ph}</li>
+        <li>{form.phone}</li>
         <li>{form.email}</li>
       </ul>
     </Grid>
@@ -460,9 +463,9 @@ export default function SquadPlayerDetails() {
         REDES SOCIALES
       </FormLabel>
       <ul>
-        <li><Button><FacebookIcon className='btn-social' /> <a href={form.fc} className="social-link">Facebook</a></Button></li>
-        <li><Button><Instagram className='btn-social' /> <a href={form.fc} className="social-link">Instagram</a></Button></li>
-        <li><Button><Twitter className='btn-social' /> <a href={form.fc} className="social-link">Twitter</a></Button></li>
+        <li><Button><FacebookIcon className='btn-social' /> <a href={form.fc} rel="noreferrer" target="_blank" className="social-link">Facebook</a></Button></li>
+        <li><Button><Instagram className='btn-social' /> <a href={form.ig} rel="noreferrer" target="_blank" className="social-link">Instagram</a></Button></li>
+        <li><Button><Twitter className='btn-social' /> <a href={form.tw} rel="noreferrer" target="_blank" className="social-link">Twitter</a></Button></li>
       </ul>
     </Grid>
 
@@ -475,8 +478,8 @@ export default function SquadPlayerDetails() {
         LINKS
       </FormLabel>
       <ul>
-        <li><Button><a href={form.tf} className="social-link">Transfermarkt</a></Button></li>
-        <li><Button><a href={form.bs} className="social-link">Besoccer</a></Button></li>
+        <li><Button><a href={form.tf} rel="noreferrer" target="_blank" className="social-link">Transfermarkt</a></Button></li>
+        <li><Button><a href={form.bs} rel="noreferrer" target="_blank" className="social-link">Besoccer</a></Button></li>
         <li><Button><YouTube className='btn-social' /> <a href={form.yt} className="social-link">YouTube</a></Button></li>
       </ul>
     </Grid>

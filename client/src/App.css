@@ -10,6 +10,7 @@
 body {
   text-align: center;
   background: linear-gradient(102deg, #555555 1%, #202020 3%, #121212 6%, #101010 70%, rgba(8, 3, 17, 0.952) 20%);
+  background-attachment: fixed !important;
 }
 
 h1{
