@@ -725,7 +725,7 @@ export default function AddToSquad() {
         </FormLabel>
         <TextField
           sx={{ width: "24ch" }}
-          label={<FacebookIcon />}
+          label={<FacebookIcon />} 
           id="img"
           value={form.face}
           onChange={(e) => updateForm({ face: e.target.value })}

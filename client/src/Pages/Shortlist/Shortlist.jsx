@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
-  Button, Container,
+  Button, Container, Grid,
 } from "@mui/material";
 
 // Tables imports
@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import "./Shortlist.css";
 import Loading from "../../Components/Spinner/Spinner";
 import Input from '@mui/material/Input';
+import ShortlistField from "../../Components/ShortlistField/ShortlistedField";
 
 
 
@@ -349,6 +350,44 @@ export default function Shortlist() {
     <>
 
       <h1 className="page-title">PRESELECCIÓN</h1>
+      <Container>
+        <Grid container>
+          <Grid xs={6}>
+            <ShortlistField />
+          </Grid>
+
+          <Grid xs={6}>
+            <Loading loading={isLoading}>
+                <div className="buscar">
+                  <Input className="input-filter-table" placeholder="Nombre" onChange={(e) => setSearch(e.target.value)}></Input>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </div>
+                <TableContainer>
+                  <Table sx={{ maxWidth: 700 }} aria-label="simple table" className="table-players">
+                    <TableHead>
+                      <TableRow >
+                        <TableCell sx={{ color: '#fff' }}>NOMBRE</TableCell>
+                        <TableCell align="left"></TableCell>
+                        <TableCell sx={{ color: '#fff' }} align="center">POSICIÓN</TableCell>
+                        <TableCell sx={{ color: '#fff' }} align="center">EDAD</TableCell>
+                        <TableCell sx={{ color: '#fff' }} align="center">NACIONALIDAD</TableCell>
+                        <TableCell sx={{ color: '#fff' }} align="center">ELIMINAR</TableCell>
+                      </TableRow>
+                    </TableHead>
+
+                    {recordListPOR()}
+                    {recordListDEF()}
+                    {recordListMED()}
+                    {recordListDEL()}
+
+                  </Table>
+                </TableContainer>
+            </Loading>
+          </Grid>
+        </Grid>
+      </Container>
       <Loading loading={isLoading}>
         <Container>
           <div className="buscar">
@@ -378,7 +417,6 @@ export default function Shortlist() {
             </Table>
           </TableContainer>
         </Container>
-
       </Loading>
     </>
   );
