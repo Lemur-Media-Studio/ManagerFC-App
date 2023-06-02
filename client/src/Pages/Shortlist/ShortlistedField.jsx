@@ -34,11 +34,15 @@ const RecordPOR = (props) => (
                 {props.record.name + " " + props.record.surname}
 
             </TableCell>
+
+            <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
+            <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años </TableCell>
+            <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
             <TableCell align="left">
                 <Button
 
                     as={Link}
-                    to={`/edit-shortlisted-player/${props.record._id + props.record.name + props.record.surname}`}
+                    to={`/edit-shortlisted-player/${props.record._id}`}
 
 
                 >
@@ -48,9 +52,6 @@ const RecordPOR = (props) => (
                     </svg>
                 </Button>
             </TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años </TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
             <TableCell align="center">
 
 
@@ -62,7 +63,7 @@ const RecordPOR = (props) => (
                     }}
 
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark-x-fill" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-x-fill" viewBox="0 0 14 14">
                         <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708z" />
                     </svg>
                 </Button>
@@ -84,6 +85,10 @@ const RecordDEF = (props) => (
                 {props.record.name + " " + props.record.surname}
 
             </TableCell>
+
+            <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
+            <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años</TableCell>
+            <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
             <TableCell align="left">
                 <Button
 
@@ -98,9 +103,6 @@ const RecordDEF = (props) => (
                     </svg>
                 </Button>
             </TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años</TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
             <TableCell align="center">
 
 
@@ -112,7 +114,7 @@ const RecordDEF = (props) => (
                     }}
 
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark-x-fill" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-x-fill" viewBox="0 0 14 14">
                         <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708z" />
                     </svg>
                 </Button>
@@ -134,6 +136,10 @@ const RecordMED = (props) => (
                 {props.record.name + " " + props.record.surname}
 
             </TableCell>
+
+            <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
+            <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años</TableCell>
+            <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
             <TableCell align="left">
                 <Button
 
@@ -148,9 +154,6 @@ const RecordMED = (props) => (
                     </svg>
                 </Button>
             </TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años</TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
             <TableCell align="center">
 
 
@@ -162,7 +165,7 @@ const RecordMED = (props) => (
                     }}
 
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark-x-fill" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-x-fill" viewBox="0 0 14 14">
                         <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708z" />
                     </svg>
                 </Button>
@@ -184,6 +187,10 @@ const RecordDEL = (props) => (
                 {props.record.name + " " + props.record.surname}
 
             </TableCell>
+
+            <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
+            <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años</TableCell>
+            <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
             <TableCell align="left">
                 <Button
 
@@ -198,32 +205,23 @@ const RecordDEL = (props) => (
                     </svg>
                 </Button>
             </TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años</TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
             <TableCell align="center">
 
 
                 <Button
-
-
                     onClick={() => {
                         props.deleteRecord(props.record._id + props.record.name + props.record.surname);
 
                     }
-
-
-
                     }
-
-
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark-x-fill" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-x-fill" viewBox="0 0 14 14">
                         <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708z" />
                     </svg>
                 </Button>
 
             </TableCell>
+            
         </TableRow>
 
     </TableBody>
@@ -261,7 +259,7 @@ export default function ShortlistedField() {
     // This method will delete a player
     async function deleteRecord(id, name, surname) {
         if (window.confirm('¿Esta seguro que desea eliminar el jugador ' + name + ' ' + surname + ' ?')) {
-            await fetch(`https://lemurpromanagement-mdg.app//deletePreselect/${id}`, {
+            await fetch(`https://lemurpromanagement-mdg.app/deletePreselect/${id}`, {
                 method: "DELETE",
             });
 
@@ -345,8 +343,6 @@ export default function ShortlistedField() {
         //console.log(e.target.value)
 
     }
-
-
     //metodo de filtrado 1 
     let results = []
     if (!search) {
@@ -356,14 +352,6 @@ export default function ShortlistedField() {
 
         )
     }
-
-
-
-
-
-
-
-
 
     // This following section will display the table with the records of individuals.
     return (
@@ -419,10 +407,10 @@ export default function ShortlistedField() {
                                     <TableHead>
                                         <TableRow >
                                             <TableCell sx={{ color: '#fff' }}>NOMBRE</TableCell>
-                                            <TableCell align="left"></TableCell>
                                             <TableCell sx={{ color: '#fff' }} align="center">POSICIÓN</TableCell>
                                             <TableCell sx={{ color: '#fff' }} align="center">EDAD</TableCell>
                                             <TableCell sx={{ color: '#fff' }} align="center">NACIONALIDAD</TableCell>
+                                            <TableCell sx={{ color: '#fff' }} align="center">EDITAR</TableCell>
                                             <TableCell sx={{ color: '#fff' }} align="center">ELIMINAR</TableCell>
                                         </TableRow>
                                     </TableHead>

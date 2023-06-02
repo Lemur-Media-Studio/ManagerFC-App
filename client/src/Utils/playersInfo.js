@@ -251,13 +251,19 @@ export const nacionalidades = [
     value: 'Argentina',
     imgValue: 'https://flagcdn.com/16x12/ar.png'
   },
+  /*
   {
     value: 'Adorra',
     imgValue: 'https://flagcdn.com/16x12/ad.png'
-  },
+  
+  },*/
   {
     value: 'Portugal',
     imgValue: 'https://flagcdn.com/16x12/pt.png'
+  },
+  {
+    value: 'Rumania',
+    imgValue: 'https://flagcdn.com/16x12/ro.png'
   },
   {
     value: 'Francia',
