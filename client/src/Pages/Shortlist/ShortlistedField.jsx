@@ -349,8 +349,13 @@ export default function ShortlistedField() {
         results = records
     } else {
         results = records.filter((dato) => dato.name.toLowerCase().includes(search.toLocaleLowerCase()) || dato.pn.toLowerCase().includes(search.toLocaleLowerCase())
+    
 
         )
+
+        if(search === "CRI" || search === "DEL" || search === "POR" ){
+            results = records.filter((dato) => dato.pn.toLowerCase().includes(search.toLocaleLowerCase()))
+        }
     }
 
     // This following section will display the table with the records of individuals.

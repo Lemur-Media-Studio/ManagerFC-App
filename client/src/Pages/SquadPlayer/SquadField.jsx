@@ -353,6 +353,9 @@ export default function SquadField() {
         results = records.filter((dato) => dato.name.toLowerCase().includes(search.toLocaleLowerCase()) || dato.pn.toLowerCase().includes(search.toLocaleLowerCase())
 
         )
+        if(search === "CRI" || search === "DEL" || search === "POR" ){
+          results = records.filter((dato) => dato.pn.toLowerCase().includes(search.toLocaleLowerCase()))
+      }
     }
 
 
