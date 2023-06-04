@@ -350,10 +350,11 @@ export default function SquadField() {
     if (!search) {
         results = records
     } else {
-        results = records.filter((dato) => dato.name.toLowerCase().includes(search.toLocaleLowerCase()) || dato.pn.toLowerCase().includes(search.toLocaleLowerCase())
-
-        )
-        if(search === "CRI" || search === "DEL" || search === "POR" ){
+        results = records.filter((dato) => dato.name.toLowerCase().includes(search.toLocaleLowerCase()) 
+        || dato.pn.toLowerCase().includes(search.toLocaleLowerCase()))
+        
+        if(search === "CRI" || search === "CRD" || search === "PIV DEF" || search === "MC" || 
+        search === "MP" || search === "DEL" || search === "POR" || search === "DC" || search === "LD" || search === "LI" ){
           results = records.filter((dato) => dato.pn.toLowerCase().includes(search.toLocaleLowerCase()))
       }
     }
