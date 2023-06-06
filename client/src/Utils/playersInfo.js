@@ -262,7 +262,7 @@ export const nacionalidades = [
     imgValue: 'https://flagcdn.com/16x12/pt.png'
   },
   {
-    value: 'Rumania',
+    value: 'Rumanía',
     imgValue: 'https://flagcdn.com/16x12/ro.png'
   },
   {
@@ -272,6 +272,14 @@ export const nacionalidades = [
   {
     value: 'Italia',
     imgValue: 'https://flagcdn.com/16x12/it.png'
+  },
+  {
+    value: 'Ghana',
+    imgValue: 'https://flagcdn.com/16x12/gh.png'
+  },
+  {
+    value: 'Polonia',
+    imgValue: 'https://flagcdn.com/16x12/pl.png'
   },
 ];
 
