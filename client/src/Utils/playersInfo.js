@@ -262,6 +262,10 @@ export const nacionalidades = [
     imgValue: 'https://flagcdn.com/16x12/pt.png'
   },
   {
+    value: 'Mali',
+    imgValue: 'https://flagcdn.com/16x12/ml.png'
+  },
+  {
     value: 'Rumanía',
     imgValue: 'https://flagcdn.com/16x12/ro.png'
   },
