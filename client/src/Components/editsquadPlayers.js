@@ -73,6 +73,7 @@ export default function EditpreselectPlayer() {
     gll: "",
     reqpiso:"",
     it:"",
+    fp:"",
     sc: "",
     cp: "",
     ca: "",
@@ -213,6 +214,7 @@ export default function EditpreselectPlayer() {
       gll: form.gll,
       reqpiso: form.reqpiso,
       it: form.it,
+      fp: form.fp,
       sc: form.sc,
       cp: form.cp,
       ca: form.ca,
@@ -654,6 +656,21 @@ export default function EditpreselectPlayer() {
           </MenuItem>
         ))}
       </TextField>
+
+      <TextField
+          sx={{ width: "24ch" }}
+          id="outlined-select-currency"
+          select
+          label="¿Fichaje prioritario?"
+          value={form.fp}
+          onChange={(e) => updateForm({ fp: e.target.value })}
+        >
+          {scoutAsk.map((option) => (
+            <MenuItem key={option.value} className='dropdown-item' value={option.value}>
+              {option.value}
+            </MenuItem>
+          ))}
+        </TextField>
 
       <div className="line-form"></div>
 
