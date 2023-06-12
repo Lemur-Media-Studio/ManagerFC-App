@@ -16,6 +16,7 @@ import {
   languages,
   maritalStatusValues,
   childsValues,
+  scoutAsk,
   positionValues,
   footValues,
   tecnicoValues,
@@ -122,6 +123,9 @@ export default function NewProfile() {
     cpo: "",
     gll: "",
     sc: "",
+    fp: "",
+    it: "",
+    reqpiso: "",
     cp: "",
     ca: "",
     phone: "",
@@ -248,6 +252,9 @@ export default function NewProfile() {
       cpo: "",
       gll: "",
       sc: "",
+      fp: "",
+      it: "",
+      reqpiso: "",
       cp: "",
       ca: "",
       phone: "",
@@ -317,14 +324,7 @@ export default function NewProfile() {
         
         />
 
-        <TextField
-          sx={{ width: "24ch" }}
-          required
-          id="outlined-required"
-          label="Edad"
-          value={form.age0}
-          onChange={(e) => updateForm({ age0: e.target.value })}
-        />
+
 
         <TextField
           sx={{ width: "24ch" }}
@@ -470,12 +470,7 @@ export default function NewProfile() {
           value={form.peso}
           onChange={(e) => updateForm({ peso: e.target.value })}
         />
-        <TextField
-          sx={{ width: "14ch" }}
-          label="Peso ideal"
-          value={form.peso}
-          onChange={(e) => updateForm({ peso: e.target.value })}
-        />
+
 
         <Grid
           className="attributes"
@@ -673,6 +668,27 @@ export default function NewProfile() {
             </MenuItem>
           ))}
         </TextField>
+
+     
+        <TextField
+          sx={{ width: "24ch" }}
+          id="outlined-select-currency"
+          select
+          label="¿Fichaje prioritario?"
+          value={form.fp}
+          onChange={(e) => updateForm({ fp: e.target.value })}
+        >
+          {scoutAsk.map((option) => (
+            <MenuItem key={option.value} className='dropdown-item' value={option.value}>
+              {option.value}
+            </MenuItem>
+          ))}
+        </TextField>
+
+     
+
+
+
 
         <div className="line-form"></div>
 

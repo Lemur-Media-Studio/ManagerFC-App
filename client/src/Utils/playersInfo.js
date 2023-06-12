@@ -28,6 +28,15 @@ export const childsValues = [
   }
 ];
 
+export const scoutAsk = [
+  {
+    value: 'Sí',
+  },
+  {
+    value: 'No',
+  }
+];
+
 export const positionValues = [
   {
     value: 'POR',
@@ -248,26 +257,8 @@ export const nacionalidades = [
     imgValue: 'https://flagcdn.com/16x12/es.png'
   },
   {
-    value: 'Argentina',
-    imgValue: 'https://flagcdn.com/16x12/ar.png'
-  },
-  /*
-  {
-    value: 'Adorra',
-    imgValue: 'https://flagcdn.com/16x12/ad.png'
-  
-  },*/
-  {
     value: 'Portugal',
     imgValue: 'https://flagcdn.com/16x12/pt.png'
-  },
-  {
-    value: 'Mali',
-    imgValue: 'https://flagcdn.com/16x12/ml.png'
-  },
-  {
-    value: 'Rumanía',
-    imgValue: 'https://flagcdn.com/16x12/ro.png'
   },
   {
     value: 'Francia',
@@ -278,6 +269,38 @@ export const nacionalidades = [
     imgValue: 'https://flagcdn.com/16x12/it.png'
   },
   {
+    value: 'Países Bajos',
+    imgValue: 'https://flagcdn.com/16x12/nl.png'
+  },
+    /*
+  {
+    value: 'Adorra',
+    imgValue: 'https://flagcdn.com/16x12/ad.png'
+  
+  },*/
+  {
+    value: 'Argentina',
+    imgValue: 'https://flagcdn.com/16x12/ar.png'
+  },
+  {
+    value: 'Uruguay',
+    imgValue: 'https://flagcdn.com/16x12/uy.png'
+  },
+  {
+    value: 'Chile',
+    imgValue: 'https://flagcdn.com/16x12/cl.png'
+  },
+
+  {
+    value: 'Mali',
+    imgValue: 'https://flagcdn.com/16x12/ml.png'
+  },
+  {
+    value: 'Rumanía',
+    imgValue: 'https://flagcdn.com/16x12/ro.png'
+  },
+
+  {
     value: 'Ghana',
     imgValue: 'https://flagcdn.com/16x12/gh.png'
   },
@@ -285,6 +308,12 @@ export const nacionalidades = [
     value: 'Polonia',
     imgValue: 'https://flagcdn.com/16x12/pl.png'
   },
+  {
+    value: 'Marruecos',
+    imgValue: 'https://flagcdn.com/16x12/ma.png'
+  },
+
+
 ];
 
 export const contractSituation = [
