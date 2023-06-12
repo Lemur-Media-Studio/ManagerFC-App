@@ -11,6 +11,7 @@ import {
   languages,
   maritalStatusValues,
   childsValues,
+  scoutAsk,
   positionValues,
   footValues,
   tecnicoValues,
