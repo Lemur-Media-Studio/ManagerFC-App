@@ -338,14 +338,7 @@ export default function Edit() {
           onChange={(e) => updateForm({ fn: e.target.value })}
         
         />
-        <TextField
-          sx={{ width: "24ch" }}
-          required
-          id="outlined-required"
-          label="Edad"
-          value={form.age0}
-          onChange={(e) => updateForm({ age0: e.target.value })}
-        />
+
 
         <TextField
           sx={{ width: "24ch" }}
@@ -498,12 +491,7 @@ export default function Edit() {
           value={form.peso}
           onChange={(e) => updateForm({ peso: e.target.value })}
         />
-        <TextField
-          sx={{ width: "14ch" }}
-          label="Peso ideal"
-          value={form.peso}
-          onChange={(e) => updateForm({ peso: e.target.value })}
-        />
+
 
         <Grid
           className="attributes"
