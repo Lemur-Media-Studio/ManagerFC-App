@@ -296,16 +296,28 @@ export default function ShortlistedField() {
     if (!search) {
         results = records
     } else {
-        results = records.filter((dato) => dato.name.toLowerCase().includes(search.toLocaleLowerCase())
-            || dato.pn.toLowerCase().includes(search.toLocaleLowerCase())
-
-
+        results = records.filter((dato) =>
+            dato.name.toLowerCase().includes(search.toLocaleLowerCase()) //Filtro por nombre
+            || dato.pn.toLowerCase().includes(search.toLocaleLowerCase()) //Filtro por posición
+ 
         )
 
         if (search === "CRI" || search === "CRD" || search === "PIV DEF" || search === "MC" ||
             search === "MP" || search === "DEL" || search === "POR" || search === "DC" || search === "LD" || search === "LI") {
             results = records.filter((dato) => dato.pn.toLowerCase().includes(search.toLocaleLowerCase()))
         }
+        
+
+        //Filtro centrales por posición y perfil hábil
+        if (search === "dcdiestra") {
+            console.log(search)
+            results = records.filter((dato) => (dato.pn.toLowerCase() + dato.ph.toLocaleLowerCase()).includes(search.toLocaleLowerCase()))
+        }
+        if (search === "dczurda") {
+            console.log(search)
+            results = records.filter((dato) => (dato.pn.toLowerCase() + dato.ph.toLocaleLowerCase()).includes(search.toLocaleLowerCase()))
+        }
+        console.log(results)
     }
 
     // This following section will display the table with the records of individuals.
@@ -328,8 +340,8 @@ export default function ShortlistedField() {
                         >
 
                             <Button sx={{ width: 60, height: 50, top: "60px", left: "380px" }} color="secondary" variant="contained" value="POR" onClick={searcher}>POR</Button>
-                            <Button sx={{ width: 60, height: 50, top: "150px", left: "260px" }} color="primary" variant="contained" value="DC" onClick={searcher}>DC</Button>
-                            <Button sx={{ width: 60, height: 50, top: "150px", left: "310px" }} color="primary" variant="contained" value="DC" onClick={searcher}>DC</Button>
+                            <Button sx={{ width: 60, height: 50, top: "150px", left: "260px" }} color="primary" variant="contained" value="dcdiestra" onClick={searcher}>DC</Button>
+                            <Button sx={{ width: 60, height: 50, top: "150px", left: "310px" }} color="primary" variant="contained" value="dczurda" onClick={searcher}>DC</Button>
                             <Button sx={{ width: 60, height: 50, top: "190px", left: "40px" }} color="primary" variant="contained" value="LD" onClick={searcher}>LD</Button>
                             <Button sx={{ width: 60, height: 50, top: "190px", left: "270px" }} color="primary" variant="contained" value="LI" onClick={searcher}>LI</Button>
                             <Button sx={{ width: 60, height: 50, top: "270px", right: "88px" }} color="primary" variant="contained" value="CRD" onClick={searcher}>CRD</Button>
