@@ -220,7 +220,7 @@ export default function ShortlistedField() {
 
     function listNOFAV() {
         return results.map((record) => {
-            if (record.fp === "No" || record.fp === "") {
+            if (record.fp === "No") {
                 if (record.pn === "POR") {
                     return (
                         <RecordNOFAV
