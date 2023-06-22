@@ -316,7 +316,10 @@ export const nacionalidades = [
     value: 'Bélgica',
     imgValue: 'https://flagcdn.com/16x12/be.png'
   },
-
+  {
+    value: 'Nigeria',
+    imgValue: 'https://flagcdn.com/16x12/ng.png'
+  },
 
 ];
 export const countries = [
