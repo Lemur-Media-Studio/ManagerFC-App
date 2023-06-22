@@ -8,10 +8,12 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import SaveIcon from "@mui/icons-material/Save";
+import Autocomplete from '@mui/material/Autocomplete';
 import "./NewProfile.css";
 
 
 import {
+  countries,
   nacionalidades,
   languages,
   maritalStatusValues,
@@ -85,31 +87,31 @@ export default function NewProfile() {
 
     //mentalValues
     mental: "",
-    men1:"",
-    men2:"",
-    men3:"",
-    men4:"",
-    men5:"",
-    men6:"",
-    men7:"",
-    men8:"",
-    men9:"",
-    men10:"",
-    men11:"",
-    men12:"",
-    men13:"",
-    men14:"",
-    men15:"",
+    men1: "",
+    men2: "",
+    men3: "",
+    men4: "",
+    men5: "",
+    men6: "",
+    men7: "",
+    men8: "",
+    men9: "",
+    men10: "",
+    men11: "",
+    men12: "",
+    men13: "",
+    men14: "",
+    men15: "",
 
     //gkValues
     gk: "",
-    por1:"",
-    por2:"",
-    por3:"",
-    por4:"",
-    por5:"",
-    por6:"",
-    por7:"",
+    por1: "",
+    por2: "",
+    por3: "",
+    por4: "",
+    por5: "",
+    por6: "",
+    por7: "",
 
     c: "",
     sb: "",
@@ -214,31 +216,31 @@ export default function NewProfile() {
 
       //mentalValues
       mental: "",
-      men1:"",
-      men2:"",
-      men3:"",
-      men4:"",
-      men5:"",
-      men6:"",
-      men7:"",
-      men8:"",
-      men9:"",
-      men10:"",
-      men11:"",
-      men12:"",
-      men13:"",
-      men14:"",
-      men15:"",
+      men1: "",
+      men2: "",
+      men3: "",
+      men4: "",
+      men5: "",
+      men6: "",
+      men7: "",
+      men8: "",
+      men9: "",
+      men10: "",
+      men11: "",
+      men12: "",
+      men13: "",
+      men14: "",
+      men15: "",
 
       //gkValues
       gk: "",
-      por1:"",
-      por2:"",
-      por3:"",
-      por4:"",
-      por5:"",
-      por6:"",
-      por7:"",
+      por1: "",
+      por2: "",
+      por3: "",
+      por4: "",
+      por5: "",
+      por6: "",
+      por7: "",
 
       c: "",
       sb: "",
@@ -321,9 +323,40 @@ export default function NewProfile() {
           InputLabelProps={{ shrink: true, required: true }}
           value={form.fn}
           onChange={(e) => updateForm({ fn: e.target.value })}
-        
+
         />
 
+        {/* AUTO COMPLETE NACIONALIDAD 
+        <Autocomplete
+          id="country-select-demo"
+          sx={{ width: "24ch" }}
+          options={countries}
+          autoHighlight
+          getOptionLabel={(option) => option.label}
+          renderOption={(props, option) => (
+            <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
+              <img
+                loading="lazy"
+                width="20"
+                src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
+                srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
+                alt=""
+              />
+              {option.label} ({option.code})
+            </Box>
+          )}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Nacionalidad"
+              inputProps={{
+                ...params.inputProps,
+                autoComplete: 'new-password', // disable autocomplete and autofill
+              }}
+            />
+          )}
+        />
+        */}
 
 
         <TextField
@@ -492,7 +525,7 @@ export default function NewProfile() {
               component="legend"
               className="attributes-label"
             >
-            TÉCNICO
+              TÉCNICO
             </FormLabel>
             <ul>
               <li><FormControlLabel label="Cabeceo" control={<Checkbox value="Cabeceo" onChange={(e) => updateForm({ tec1: e.target.value })}></Checkbox>}></FormControlLabel></li>
@@ -554,7 +587,7 @@ export default function NewProfile() {
               MENTAL
             </FormLabel>
             <ul>
-            <li><FormControlLabel label="Blocaje" control={<Checkbox value="Blocaje" onChange={(e) => updateForm({ men1: e.target.value })}></Checkbox>}></FormControlLabel></li>
+              <li><FormControlLabel label="Blocaje" control={<Checkbox value="Blocaje" onChange={(e) => updateForm({ men1: e.target.value })}></Checkbox>}></FormControlLabel></li>
               <li><FormControlLabel label="Comunicación" control={<Checkbox value="Comunicación" onChange={(e) => updateForm({ men2: e.target.value })}></Checkbox>}></FormControlLabel></li>
               <li><FormControlLabel label="Excentricidad" control={<Checkbox value="Excentricidad" onChange={(e) => updateForm({ men3: e.target.value })}></Checkbox>}></FormControlLabel></li>
               <li><FormControlLabel label="Agresividad" control={<Checkbox value="Agresividad" onChange={(e) => updateForm({ men4: e.target.value })}></Checkbox>}></FormControlLabel></li>
@@ -588,7 +621,7 @@ export default function NewProfile() {
               <li><FormControlLabel label="Saques con la mano" control={<Checkbox value="Saques con la mano" onChange={(e) => updateForm({ por6: e.target.value })}></Checkbox>}></FormControlLabel></li>
               <li><FormControlLabel label="Saques de puerta" control={<Checkbox value="Saques de puerta" onChange={(e) => updateForm({ por7: e.target.value })}></Checkbox>}></FormControlLabel></li>
             </ul>
-    
+
           </Grid>
         </Grid>
 
@@ -669,7 +702,7 @@ export default function NewProfile() {
           ))}
         </TextField>
 
-     
+
         <TextField
           sx={{ width: "24ch" }}
           id="outlined-select-currency"
@@ -685,7 +718,7 @@ export default function NewProfile() {
           ))}
         </TextField>
 
-     
+
 
 
 
