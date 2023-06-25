@@ -37,6 +37,7 @@ import {
   Twitter,
   YouTube,
 } from "@mui/icons-material";
+import { textAlign } from "@mui/system";
 
 export default function NewProfile() {
   const [form, setForm] = useState({
@@ -325,59 +326,38 @@ export default function NewProfile() {
           onChange={(e) => updateForm({ fn: e.target.value })}
 
         />
-
-        {/* AUTO COMPLETE NACIONALIDAD 
-        <Autocomplete
-          id="country-select-demo"
-          sx={{ width: "24ch" }}
-          options={countries}
-          autoHighlight
-          getOptionLabel={(option) => option.label}
-          renderOption={(props, option) => (
-            <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-              <img
-                loading="lazy"
-                width="20"
-                src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
-                srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
-                alt=""
-              />
-              {option.label} ({option.code})
-            </Box>
-          )}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Nacionalidad"
-              inputProps={{
-                ...params.inputProps,
-                autoComplete: 'new-password', // disable autocomplete and autofill
-              }}
-            />
-          )}
-        />
-        */}
-
-
+       
+       <Autocomplete
+      id="country-select-demo"
+      sx={{ width: "24ch" }}
+      options={countries}
+      autoHighlight
+      getOptionLabel={(option) => option.label + "" + option.code}
+      onInputChange={(e,v) =>  updateForm({na0: `https://flagcdn.com/w20/${v.substring(v.length - 2).toLowerCase()}.png`})}
+      //onInputChange={(e,v) => updateForm({ na0: v })}
+      
+      renderOption={(props, option) => (
+        <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 }, bgcolor:"black" }} {...props}>
+          <img
+            loading="lazy"
+            width="20"
+            src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
+            srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
+            alt=""
+          />
+          {option.label}
+        </Box>
+      )}
+      renderInput={(params) => (
         <TextField
-          sx={{ width: "24ch" }}
-          id="outlined-select-currency"
-          select
-          label="Nacionalidad"
-          value={form.na0}
-          onChange={(e) => updateForm({ na0: e.target.value })}
-        >
-          {nacionalidades.map((option) => (
-            <MenuItem key={option.value} className='dropdown-item' value={option.imgValue}>
-              <img
-                alt="nacionalidad"
-                src={option.imgValue}
-                key={option.imgValue}
-              ></img>
-              {option.value}
-            </MenuItem>
-          ))}
-        </TextField>
+          {...params}
+          label="1er Nacionalidad (demo)"
+
+        />
+      )}
+    />
+    
+  
         <TextField
           sx={{ width: "24ch" }}
           id="outlined-select-currency"
@@ -397,6 +377,7 @@ export default function NewProfile() {
             </MenuItem>
           ))}
         </TextField>
+
 
         <TextField
           sx={{ width: "24ch" }}
