@@ -291,6 +291,19 @@ export default function NewProfile() {
 
         <h2>DATOS PERSONALES</h2>
 
+        <Box
+        component="form"
+        onSubmit={onSubmit}
+        sx={{
+          "& .MuiTextField-root": { mx: 1 },
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+        noValidate
+        autoComplete="off"
+        >
+
         <TextField
           sx={{ width: "24ch", color: "white !important" }}
           required
@@ -315,6 +328,7 @@ export default function NewProfile() {
           value={form.img}
           onChange={(e) => updateForm({ img: e.target.value })}
         />
+        
         <TextField
           type="date"
           sx={{ width: "24ch" }}
@@ -327,35 +341,37 @@ export default function NewProfile() {
 
         />
        
-       <Autocomplete
-      id="country-select-demo"
-      sx={{ width: "24ch" }}
-      options={countries}
-      autoHighlight
-      getOptionLabel={(option) => option.label + "" + option.code}
-      onInputChange={(e,v) =>  updateForm({na0: `https://flagcdn.com/w20/${v.substring(v.length - 2).toLowerCase()}.png`})}
-      //onInputChange={(e,v) => updateForm({ na0: v })}
-      
-      renderOption={(props, option) => (
-        <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 }, bgcolor:"black" }} {...props}>
-          <img
-            loading="lazy"
-            width="20"
-            src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
-            srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
-            alt=""
-          />
-          {option.label}
-        </Box>
-      )}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label="1er Nacionalidad (demo)"
+        <Autocomplete
+        id="country-select-demo"
+        sx={{ width: "24ch", mr:2 }}
+        classes={{ paper: "custom-menu-paper" }}
+        options={countries}
+        autoHighlight
+        getOptionLabel={(option) => option.label}
+        onInputChange={(e,v) =>  updateForm({na0: `https://flagcdn.com/w20/${v.substring(v.length - 2).toLowerCase()}.png`})}
+        //onInputChange={(e,v) => updateForm({ na0: v })}
+        
+        renderOption={(props, option) => (
+          <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 }}} {...props}>
+            <img
+              loading="lazy"
+              width="20"
+              src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
+              srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
+              alt="Bandera del país"
+            />
+            {option.label}
+          </Box>
+        )}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Primera nacionalidad"
+            sx={{ width: "24ch" }}
 
-        />
-      )}
-    />
+          />
+        )}
+      />
     
   
         <TextField
@@ -423,6 +439,8 @@ export default function NewProfile() {
         </TextField>
         {/**/}
         <div className="line-form"></div>
+        </Box>
+
         <h2>PERFIL FUTBOLÍSTICO</h2>
         <TextField
           sx={{ width: "24ch" }}
