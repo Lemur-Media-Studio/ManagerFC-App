@@ -23,6 +23,16 @@ function calculateAge(dateString) {
     return ~~((Date.now() - birthday) / (31557600000));
 }
 
+
+function u23(dateString) {
+    var birthday = +new Date(dateString);
+    const edad = ((Date.now() - birthday) / (31557600000))
+    if(edad <= 24){
+        const img = "https://i.ibb.co/rs86WWC/u23-Manager-App.png"
+        return(img)
+    }
+}
+
 const RecordFAV = (props) => (
     <TableBody>
 
@@ -38,7 +48,8 @@ const RecordFAV = (props) => (
             </svg></TableCell>
 
             <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años</TableCell>
+            <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años </TableCell>
+            <TableCell align="center" sx={{ color: 'white' }}><img width="500%" src={u23(props.record.fn)} alt="-"></img></TableCell>
             <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
             <TableCell align="left">
                 <Button
@@ -90,6 +101,7 @@ const RecordNOFAV = (props) => (
 
             <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
             <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años</TableCell>
+            <TableCell align="center" sx={{ color: 'white' }}><img   width="500%"  src={u23(props.record.fn)} alt="-"></img></TableCell>
             <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
             <TableCell align="left">
                 <Button
@@ -182,8 +194,7 @@ export default function ShortlistedField() {
                         <RecordFAV
                             record={record}
                             deleteRecord={() => deleteRecord(record._id, record.name, record.surname)}
-                            key={record._id}
-                        />
+                            key={record._id} />
                     );
                 }
                 if (record.pn === "DC" || record.pn === "LD" || record.pn === "LI" || record.pn === "CRD" || record.pn === "CRI") {
@@ -377,6 +388,7 @@ export default function ShortlistedField() {
                                             <TableCell sx={{ color: '#fff' }}></TableCell>
                                             <TableCell sx={{ color: '#fff' }} align="center">POSICIÓN</TableCell>
                                             <TableCell sx={{ color: '#fff' }} align="center">EDAD</TableCell>
+                                            <TableCell sx={{ color: '#fff' }} align="center"></TableCell>
                                             <TableCell sx={{ color: '#fff' }} align="center">NACIONALIDAD</TableCell>
                                             <TableCell sx={{ color: '#fff' }} align="center">EDITAR</TableCell>
                                             <TableCell sx={{ color: '#fff' }} align="center">ELIMINAR</TableCell>
