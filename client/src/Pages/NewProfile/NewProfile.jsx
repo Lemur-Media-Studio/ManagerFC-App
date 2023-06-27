@@ -347,7 +347,7 @@ export default function NewProfile() {
         classes={{ paper: "custom-menu-paper" }}
         options={countries}
         autoHighlight
-        getOptionLabel={(option) => option.label}
+        getOptionLabel={(option) => option.label + " - " + option.code}
         onInputChange={(e,v) =>  updateForm({na0: `https://flagcdn.com/w20/${v.substring(v.length - 2).toLowerCase()}.png`})}
         //onInputChange={(e,v) => updateForm({ na0: v })}
         
@@ -372,29 +372,38 @@ export default function NewProfile() {
           />
         )}
       />
-    
-  
-        <TextField
-          sx={{ width: "24ch" }}
-          id="outlined-select-currency"
-          select
-          label="Segunda nacionalidad"
-          value={form.na1}
-          onChange={(e) => updateForm({ na1: e.target.value })}
-        >
-          {nacionalidades.map((option) => (
-            <MenuItem key={option.value} className='dropdown-item' value={option.imgValue}>
-              <img
-                alt="nacionalidad"
-                src={option.imgValue}
-                key={option.imgValue}
-              ></img>
-              {option.value}
-            </MenuItem>
-          ))}
-        </TextField>
 
+<Autocomplete
+        id="country-select-demo"
+        sx={{ width: "24ch", mr:2 }}
+        classes={{ paper: "custom-menu-paper" }}
+        options={countries}
+        autoHighlight
+        getOptionLabel={(option) => option.label + " - " + option.code}
+        onInputChange={(e,v) =>  updateForm({na1: `https://flagcdn.com/w20/${v.substring(v.length - 2).toLowerCase()}.png`})}
+        //onInputChange={(e,v) => updateForm({ na0: v })}
+        
+        renderOption={(props, option) => (
+          <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 }}} {...props}>
+            <img
+              loading="lazy"
+              width="20"
+              src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
+              srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
+              alt="Bandera del país"
+            />
+            {option.label}
+          </Box>
+        )}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Segunda nacionalidad"
+            sx={{ width: "24ch" }}
 
+          />
+        )}
+      />
         <TextField
           sx={{ width: "24ch" }}
           id="outlined-select-currency"
