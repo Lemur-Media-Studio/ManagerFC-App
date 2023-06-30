@@ -168,22 +168,15 @@ export default function ShortlistedField() {
 
         return;
     }, [records.length]);
-
     // This method will delete a player
     async function deleteRecord(id, name, surname) {
         if (window.confirm('¿Esta seguro que desea eliminar el jugador ' + name + ' ' + surname + ' ?')) {
             await fetch(`https://lemurpromanagement-mdg.app/deletePreselect/${id}`, {
                 method: "DELETE",
             });
-
             const newRecords = records.filter((el) => el._id !== id);
             setRecords(newRecords);
-
         }
-
-
-
-
     }
     function listFAV() {
         return results.map((record) => {
