@@ -27,7 +27,7 @@ function calculateAge(dateString) {
 function u23(dateString) {
     var birthday = +new Date(dateString);
     const edad = ((Date.now() - birthday) / (31557600000))
-    if(edad <= 24){
+    if(edad <= 22){
         const img = "https://i.ibb.co/rs86WWC/u23-Manager-App.png"
         return(img)
     }
