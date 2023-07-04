@@ -27,7 +27,7 @@ function calculateAge(dateString) {
 function u23(dateString) {
     var birthday = +new Date(dateString);
     const edad = ((Date.now() - birthday) / (31557600000))
-    if(edad <= 22){
+    if(edad <= 23){
         const img = "https://i.ibb.co/rs86WWC/u23-Manager-App.png"
         return(img)
     }
@@ -35,10 +35,7 @@ function u23(dateString) {
 
 const RecordFAV = (props) => (
     <TableBody>
-
-        <TableRow
-
-        >
+        <TableRow>
             <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} className='player-name-table' to={`/shortlisted-player/${props.record._id}`}>
                 {props.record.name + " " + props.record.surname}
             </TableCell>
@@ -46,12 +43,12 @@ const RecordFAV = (props) => (
             <TableCell>                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="yellow" class="bi bi-star-fill" viewBox="0 0 16 16">
                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
             </svg>
-            <img width="120%" src={u23(props.record.fn)} alt="-"></img>
+            <img width="120%" src={u23(props.record.fn)}></img>
             </TableCell>
 
             <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
             <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años </TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
+            <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0}></img></TableCell>
             <TableCell align="left">
                 <Button
 
@@ -90,26 +87,18 @@ const RecordFAV = (props) => (
 
 const RecordNOFAV = (props) => (
     <TableBody>
-
-        <TableRow
-
-        >
+        <TableRow>
             <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} className='player-name-table' to={`/shortlisted-player/${props.record._id}`}>
                 {props.record.name + " " + props.record.surname}
             </TableCell>
-
-            <TableCell>          <img width="120%" src={u23(props.record.fn)} alt="-"></img></TableCell>
-
+            <TableCell><img width="120%" src={u23(props.record.fn)}></img></TableCell>
             <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
             <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años</TableCell>
             <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
             <TableCell align="left">
                 <Button
-
                     as={Link}
                     to={`/edit-shortlisted-player/${props.record._id}`}
-
-
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
@@ -122,10 +111,7 @@ const RecordNOFAV = (props) => (
 
                 <Button
                     onClick={() => {
-                        props.deleteRecord(props.record._id + props.record.name + props.record.surname);
-
-                    }
-                    }
+                        props.deleteRecord(props.record._id + props.record.name + props.record.surname);}}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-x-fill" viewBox="0 0 14 14">
                         <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708z" />
@@ -158,14 +144,11 @@ export default function ShortlistedField() {
                 window.alert(message);
                 return;
             }
-
             const records = await response.json();
             setRecords(records);
             setIsLoading(false)
         }
-
         getRecords();
-
         return;
     }, [records.length]);
     // This method will delete a player
@@ -180,7 +163,6 @@ export default function ShortlistedField() {
     }
     function listFAV() {
         return results.map((record) => {
-
             if (record.fp === "Sí") {
                 if (record.pn === "POR") {
                     return (
@@ -331,31 +313,25 @@ export default function ShortlistedField() {
             <h1 className="page-title">PRESELECCIÓN</h1>
             <Container>
                 <Grid container>
+                    
 
                     <Grid xs={5.6}>
-
-                        <Box
-                            sx={{
-                                width: 520,
-                                height: 670,
-                                backgroundImage: 'url(https://sharemytactics.com/images/pitch.png)',
-                            }}
-                            className="field-img"
-                        >
-
-                            <Button sx={{ width: 60, height: 50, top: "60px", left: "380px" }} color="secondary" variant="contained" value="POR" onClick={searcher}>POR</Button>
-                            <Button sx={{ width: 60, height: 50, top: "150px", left: "260px" }} color="primary" variant="contained" value="dcdiestra" onClick={searcher}>DC</Button>
-                            <Button sx={{ width: 60, height: 50, top: "150px", left: "310px" }} color="primary" variant="contained" value="dczurda" onClick={searcher}>DC</Button>
-                            <Button sx={{ width: 60, height: 50, top: "190px", left: "40px" }} color="primary" variant="contained" value="LD" onClick={searcher}>LD</Button>
-                            <Button sx={{ width: 60, height: 50, top: "190px", left: "270px" }} color="primary" variant="contained" value="LI" onClick={searcher}>LI</Button>
-                            <Button sx={{ width: 60, height: 50, top: "270px", right: "88px" }} color="primary" variant="contained" value="CRD" onClick={searcher}>CRD</Button>
-                            <Button sx={{ width: 60, height: 50, top: "270px", left: "142px" }} color="primary" variant="contained" value="CRI" onClick={searcher}>CRI</Button>
-                            <Button sx={{ width: 60, height: 50, top: "270px", right: "68px" }} color="primary" variant="contained" value="PIV DEF" onClick={searcher}>PIV DEF</Button>
-                            <Button sx={{ width: 60, height: 50, top: "344px", right: "132px" }} color="primary" variant="contained" value="MC" onClick={searcher}>MC</Button>
-                            <Button sx={{ width: 60, height: 50, top: "420px", right: "196px" }} color="primary" variant="contained" value="MP" onClick={searcher}>MP</Button>
-                            <Button sx={{ width: 60, height: 50, top: "450px", right: "408px" }} color="primary" variant="contained" value="EXD" onClick={searcher}>EXD</Button>
-                            <Button sx={{ width: 60, height: 50, top: "450px", right: "178px" }} color="primary" variant="contained" value="EXI" onClick={searcher}>EXI</Button>
-                            <Button sx={{ width: 60, height: 50, top: "520px", right: "388px" }} color="primary" variant="contained" value="DEL" onClick={searcher}>DEL</Button>
+                        <Box sx={{width: 520, height: 670, backgroundImage: 'url(https://sharemytactics.com/images/pitch.png)'}}className="field-img">
+                            
+                            <Button sx={{ width: 60, height: 50, top: "10px", left: "630px" }} color="secondary" variant="contained" value="" onClick={searcher}>Todos</Button>
+                            <Button sx={{ width: 60, height: 50, top: "60px", left: "350px" }} color="secondary" variant="contained" value="POR" onClick={searcher}>POR</Button>
+                            <Button sx={{ width: 60, height: 50, top: "150px", left: "230px" }} color="primary" variant="contained" value="dcdiestra" onClick={searcher}>DC</Button>
+                            <Button sx={{ width: 60, height: 50, top: "150px", left: "280px" }} color="primary" variant="contained" value="dczurda" onClick={searcher}>DC</Button>
+                            <Button sx={{ width: 60, height: 50, top: "190px", left: "10px" }} color="primary" variant="contained" value="LD" onClick={searcher}>LD</Button>
+                            <Button sx={{ width: 60, height: 50, top: "190px", left: "240px" }} color="primary" variant="contained" value="LI" onClick={searcher}>LI</Button>
+                            <Button sx={{ width: 60, height: 50, top: "270px", right: "110px" }} color="primary" variant="contained" value="CRD" onClick={searcher}>CRD</Button>
+                            <Button sx={{ width: 60, height: 50, top: "270px", left: "112px" }} color="primary" variant="contained" value="CRI" onClick={searcher}>CRI</Button>
+                            <Button sx={{ width: 60, height: 50, top: "270px", right: "100px" }} color="primary" variant="contained" value="PIV DEF" onClick={searcher}>PIV DEF</Button>
+                            <Button sx={{ width: 60, height: 50, top: "344px", right: "165px" }} color="primary" variant="contained" value="MC" onClick={searcher}>MC</Button>
+                            <Button sx={{ width: 60, height: 50, top: "420px", right: "230px" }} color="primary" variant="contained" value="MP" onClick={searcher}>MP</Button>
+                            <Button sx={{ width: 60, height: 50, top: "450px", right: "415px" }} color="primary" variant="contained" value="EXD" onClick={searcher}>EXD</Button>
+                            <Button sx={{ width: 60, height: 50, top: "450px", right: "240px" }} color="primary" variant="contained" value="EXI" onClick={searcher}>EXI</Button>
+                            <Button sx={{ width: 60, height: 50, top: "520px", right: "420px" }} color="primary" variant="contained" value="DEL" onClick={searcher}>DEL</Button>
 
                         </Box>
 
