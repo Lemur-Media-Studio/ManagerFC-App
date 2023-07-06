@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-    Button, Container, Grid,
-} from "@mui/material";
-
-// Tables imports
+import { Button, Container, Grid, IconButton, Tooltip } from "@mui/material";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -16,13 +12,14 @@ import Loading from "../../Components/Spinner/Spinner";
 import Input from '@mui/material/Input';
 import Box from '@mui/material/Box';
 import "./ShortlistedField.css";
-
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import StarIcon from '@mui/icons-material/Star';
 
 function calculateAge(dateString) {
     var birthday = +new Date(dateString);
     return ~~((Date.now() - birthday) / (31557600000));
 }
-
 
 function u23(dateString) {
     var birthday = +new Date(dateString);
@@ -36,88 +33,78 @@ function u23(dateString) {
 const RecordFAV = (props) => (
     <TableBody>
         <TableRow>
-            <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} className='player-name-table' to={`/shortlisted-player/${props.record._id}`}>
+            <TableCell component="th" scope="row" sx={{ color: 'white', textAlign:'center' }} as={Link} className='player-name-table' to={`/shortlisted-player/${props.record._id}`}>
                 {props.record.name + " " + props.record.surname}
             </TableCell>
 
-            <TableCell>                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="yellow" class="bi bi-star-fill" viewBox="0 0 16 16">
-                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-            </svg>
-            <img width="120%" src={u23(props.record.fn)}></img>
+            <TableCell >
+                <div className="player-list-icons-container">
+                    <Tooltip title="Fichaje prioritario">
+                        <StarIcon sx={{color: "yellow !important", fontSize:"large"}} />
+                    </Tooltip>
+                    
+                    {u23(props.record.fn) && <Tooltip title="Sub 23"><img height="20" src={u23(props.record.fn)} alt="Icono de jugador menor de 23 años" className="u23-icon"></img></Tooltip>}
+                </div>
             </TableCell>
 
-            <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años </TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0}></img></TableCell>
+            <TableCell sx={{ color: 'white', textAlign:'center' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
+            <TableCell sx={{ color: 'white', textAlign:'center' }}>{calculateAge(props.record.fn)} </TableCell>
+            <TableCell sx={{ color: 'white', textAlign:'center' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
             <TableCell align="left">
-                <Button
+                <div className="player-list-icons-edit-container">
+                    <Tooltip title="Editar">
+                        <IconButton as={Link} to={`/edit-shortlisted-player/${props.record._id}`}
+                        sx={{}}
+                        >
+                            <EditIcon sx={{mt:1, color:"#9b0181 !important"}} />
+                        </IconButton>
+                    </Tooltip>
 
-                    as={Link}
-                    to={`/edit-shortlisted-player/${props.record._id}`}
-
-
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                    </svg>
-                </Button>
+                    <Tooltip title="Eliminar">
+                        <IconButton onClick={() => {props.deleteRecord(props.record._id + props.record.name + props.record.surname);}}
+                        sx={{}}
+                        >
+                            <DeleteIcon sx={{color:"#9b0181 !important"}} />
+                        </IconButton>
+                    </Tooltip>
+                </div>
             </TableCell>
-            <TableCell align="center">
-
-
-                <Button
-                    onClick={() => {
-                        props.deleteRecord(props.record._id + props.record.name + props.record.surname);
-
-                    }
-                    }
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-x-fill" viewBox="0 0 14 14">
-                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708z" />
-                    </svg>
-                </Button>
-
-            </TableCell>
-
         </TableRow>
-
     </TableBody>
 );
 
 const RecordNOFAV = (props) => (
     <TableBody>
         <TableRow>
-            <TableCell component="th" scope="row" sx={{ color: 'white' }} as={Link} className='player-name-table' to={`/shortlisted-player/${props.record._id}`}>
+            <TableCell component="th" scope="row" sx={{ color: 'white', textAlign:'center' }} as={Link} className='player-name-table' to={`/shortlisted-player/${props.record._id}`}>
                 {props.record.name + " " + props.record.surname}
             </TableCell>
-            <TableCell><img width="120%" src={u23(props.record.fn)}></img></TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}>{calculateAge(props.record.fn)} años</TableCell>
-            <TableCell align="center" sx={{ color: 'white' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
-            <TableCell align="left">
-                <Button
-                    as={Link}
-                    to={`/edit-shortlisted-player/${props.record._id}`}
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                    </svg>
-                </Button>
+            <TableCell>
+                <div className="player-list-icons-container">
+                    {u23(props.record.fn) && <Tooltip title="Sub 23"><img height="20" src={u23(props.record.fn)} alt="Icono de jugador menor de 23 años" className="u23-icon"></img></Tooltip>}
+                </div>
             </TableCell>
-            <TableCell align="center">
+            <TableCell sx={{ color: 'white', textAlign:'center' }}>{props.record.pn + " - " + props.record.ps}</TableCell>
+            <TableCell sx={{ color: 'white', textAlign:'center' }}>{calculateAge(props.record.fn)}</TableCell>
+            <TableCell sx={{ color: 'white', textAlign:'center' }}><img src={props.record.na0} alt="Nacionalidad"></img></TableCell>
+            <TableCell >
+            <div className="player-list-icons-edit-container">
+                    <Tooltip title="Editar">
+                        <IconButton as={Link} to={`/edit-shortlisted-player/${props.record._id}`}
+                        sx={{}}
+                        >
+                            <EditIcon sx={{mt:1, color:"#9b0181 !important"}} />
+                        </IconButton>
+                    </Tooltip>
 
-
-                <Button
-                    onClick={() => {
-                        props.deleteRecord(props.record._id + props.record.name + props.record.surname);}}
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-x-fill" viewBox="0 0 14 14">
-                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708z" />
-                    </svg>
-                </Button>
-
+                    <Tooltip title="Eliminar">
+                        <IconButton onClick={() => {props.deleteRecord(props.record._id + props.record.name + props.record.surname);}}
+                        sx={{}}
+                        >
+                            <DeleteIcon sx={{color:"#9b0181 !important"}} />
+                        </IconButton>
+                    </Tooltip>
+                </div>
             </TableCell>
 
         </TableRow>
@@ -127,12 +114,10 @@ const RecordNOFAV = (props) => (
 
 
 export default function ShortlistedField() {
+
     const [records, setRecords] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
     const [search, setSearch] = useState('');
-
-
 
     // This method fetches the player data from the database.
     useEffect(() => {
@@ -273,10 +258,8 @@ export default function ShortlistedField() {
 
     //función de búsqueda
     const searcher = (e) => {
-        setSearch(e.target.value)
-        //console.log(e.target.value)
-
-    }
+        setSearch(e.target.value);
+      };
     //metodo de filtrado 1 
     let results = []
     if (!search) {
@@ -293,7 +276,6 @@ export default function ShortlistedField() {
             results = records.filter((dato) => dato.pn.toLowerCase().includes(search.toLocaleLowerCase()))
         }
         
-
         //Filtro centrales por posición y perfil hábil
         if (search === "dcdiestra") {
             console.log(search)
@@ -303,8 +285,10 @@ export default function ShortlistedField() {
             console.log(search)
             results = records.filter((dato) => (dato.pn.toLowerCase() + dato.ph.toLocaleLowerCase()).includes(search.toLocaleLowerCase()))
         }
+
         console.log(results)
     }
+      
 
     // This following section will display the table with the records of individuals.
     return (
@@ -324,13 +308,13 @@ export default function ShortlistedField() {
                             <Button sx={{ width: 60, height: 50, top: "150px", left: "280px" }} color="primary" variant="contained" value="dczurda" onClick={searcher}>DC</Button>
                             <Button sx={{ width: 60, height: 50, top: "190px", left: "10px" }} color="primary" variant="contained" value="LD" onClick={searcher}>LD</Button>
                             <Button sx={{ width: 60, height: 50, top: "190px", left: "240px" }} color="primary" variant="contained" value="LI" onClick={searcher}>LI</Button>
-                            <Button sx={{ width: 60, height: 50, top: "270px", right: "110px" }} color="primary" variant="contained" value="CRD" onClick={searcher}>CRD</Button>
+                            <Button sx={{ width: 60, height: 50, top: "270px", right: "120px" }} color="primary" variant="contained" value="CRD" onClick={searcher}>CRD</Button>
                             <Button sx={{ width: 60, height: 50, top: "270px", left: "112px" }} color="primary" variant="contained" value="CRI" onClick={searcher}>CRI</Button>
                             <Button sx={{ width: 60, height: 50, top: "270px", right: "100px" }} color="primary" variant="contained" value="PIV DEF" onClick={searcher}>PIV DEF</Button>
                             <Button sx={{ width: 60, height: 50, top: "344px", right: "165px" }} color="primary" variant="contained" value="MC" onClick={searcher}>MC</Button>
                             <Button sx={{ width: 60, height: 50, top: "420px", right: "230px" }} color="primary" variant="contained" value="MP" onClick={searcher}>MP</Button>
-                            <Button sx={{ width: 60, height: 50, top: "450px", right: "415px" }} color="primary" variant="contained" value="EXD" onClick={searcher}>EXD</Button>
-                            <Button sx={{ width: 60, height: 50, top: "450px", right: "240px" }} color="primary" variant="contained" value="EXI" onClick={searcher}>EXI</Button>
+                            <Button sx={{ width: 60, height: 50, top: "450px", right: "440px" }} color="primary" variant="contained" value="EXD" onClick={searcher}>EXD</Button>
+                            <Button sx={{ width: 60, height: 50, top: "450px", right: "210px" }} color="primary" variant="contained" value="EXI" onClick={searcher}>EXI</Button>
                             <Button sx={{ width: 60, height: 50, top: "520px", right: "420px" }} color="primary" variant="contained" value="DEL" onClick={searcher}>DEL</Button>
 
                         </Box>
@@ -343,23 +327,24 @@ export default function ShortlistedField() {
                         <Loading loading={isLoading}>
 
                             <div className="buscar" >
-
                                 <Input className="input-filter-table" placeholder="Nombre" onChange={searcher}></Input>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                 </svg>
+                                <Button sx={{ml:3, backgroundColor: "#9b0181 !important", color:"#fff"}} vlaue="u23">
+                                    Sub 23
+                                </Button>
                             </div>
                             <TableContainer sx={{ maxHeight: 670, maxWidth: 700 }}>
                                 <Table sx={{ maxWidth: 800 }} aria-label="simple table" className="table-players">
                                     <TableHead>
                                         <TableRow >
-                                            <TableCell sx={{ color: '#fff' }}>NOMBRE</TableCell>
+                                            <TableCell sx={{ color: '#fff' }} align="center">NOMBRE</TableCell>
                                             <TableCell sx={{ color: '#fff' }}></TableCell>
-                                            <TableCell sx={{ color: '#fff' }} align="center">POSICIÓN</TableCell>
+                                            <TableCell sx={{ color: '#fff' }} align="center">POS</TableCell>
                                             <TableCell sx={{ color: '#fff' }} align="center">EDAD</TableCell>
-                                            <TableCell sx={{ color: '#fff' }} align="center">NACIONALIDAD</TableCell>
-                                            <TableCell sx={{ color: '#fff' }} align="center">EDITAR</TableCell>
-                                            <TableCell sx={{ color: '#fff' }} align="center">ELIMINAR</TableCell>
+                                            <TableCell sx={{ color: '#fff' }} align="center">NAC</TableCell>
+                                            <TableCell sx={{ color: '#fff' }} align="center">EDICIÓN</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     {listFAV()}

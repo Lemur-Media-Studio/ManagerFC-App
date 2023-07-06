@@ -35,3 +35,22 @@
 .input-filter-table::after{
     border-bottom: 2px solid #9b0181 !important;
 }
+
+.player-list-icons-container{
+    display: flex !important;
+    align-items: center !important;
+}
+
+.player-list-icons-edit-container{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.u23-icon{
+    margin-left: 5px;
+}
+
+.MuiTableCell-body{
+    padding: 15px 0 !important;
+}
