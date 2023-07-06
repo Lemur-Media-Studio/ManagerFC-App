@@ -276,15 +276,18 @@ export default function ShortlistedField() {
             results = records.filter((dato) => dato.pn.toLowerCase().includes(search.toLocaleLowerCase()))
         }
         
-        //Filtro centrales por posición y perfil hábil
-        if (search === "dcdiestra") {
-            console.log(search)
-            results = records.filter((dato) => (dato.pn.toLowerCase() + dato.ph.toLocaleLowerCase()).includes(search.toLocaleLowerCase()))
-        }
-        if (search === "dczurda") {
-            console.log(search)
-            results = records.filter((dato) => (dato.pn.toLowerCase() + dato.ph.toLocaleLowerCase()).includes(search.toLocaleLowerCase()))
-        }
+      //Filtro centrales por posición y perfil hábil
+      if (search === "dcdiestra") {
+        results = records.filter((dato) => (dato.pn==="DC" && (dato.ph === "Ambos perfiles" || dato.ph==="Diestra")))
+      }
+      if (search === "dczurda") {
+        results = records.filter((dato) => (dato.pn==="DC" && (dato.ph === "Ambos perfiles" || dato.ph==="Zurda")))
+      }
+  
+      //Filtro jugadores sub 23
+      if(search === "u23"){
+        results = records.filter((dato) => (dato.fn.startsWith("2001") || dato.fn.startsWith("2002") || dato.fn.startsWith("2003") || dato.fn.startsWith("2004") || dato.fn.startsWith("2005") || dato.fn.startsWith("2006")))
+      }
 
         console.log(results)
     }
@@ -331,7 +334,7 @@ export default function ShortlistedField() {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                 </svg>
-                                <Button sx={{ml:3, backgroundColor: "#9b0181 !important", color:"#fff"}} vlaue="u23">
+                                <Button sx={{ml:3, backgroundColor: "#9b0181 !important", color:"#fff"}} value="u23" onClick={searcher}>
                                     Sub 23
                                 </Button>
                             </div>
