@@ -24,11 +24,11 @@ li{
 }
 
 .playerName-h1{
-    margin: -5px 0 !important;
+    margin: -5px 20px !important;
 }
 
 .playerPos-h3{
-    margin: 0 5px !important;
+    margin: 0 20px !important;
 }
 
 .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
@@ -52,4 +52,35 @@ li{
 .sd-contract{
     display: flex !important;
     justify-content: center !important;
+}
+
+.img-jugador{
+    height: 120px !important;
+    width: 130px !important;
+    border-top: #9b0181 double 5px;
+    border-left: #9b0181 double 5px;
+    border-right: #9b0181 double 5px;
+    border-bottom: none !important;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    z-index: 2;
+    background-color: #190e43;
+    margin-bottom: 2px;
+    margin-left: -1px;
+}
+
+@media only screen and (max-width: 500px) {
+    .playerName-h1{
+        margin: -5px 50px !important;
+        font-size: 25px !important;
+    }
+    
+    .playerPos-h3{
+        margin: 0 50px !important;
+    }
+
+    .img-jugador{
+        height: 120px !important;
+        width: 130px !important;
+    }
 }
