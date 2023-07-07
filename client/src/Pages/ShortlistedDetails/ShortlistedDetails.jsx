@@ -107,20 +107,19 @@ export default function ShortlistedDetails() {
 <Box sx={{ pb: 7, mt: 8 }} ref={ref}>
 
 <Grid
-    container
-    display="flex"
-    wrap="wrap"
-    justifyContent="left"
-    alignItems="center"
-    textAlign="left"
-    sx={{ mt: 15, mx:0.15, mb:-0.9 }}
-    >
-    <Grid xs={1}>
-    <img src={form.img}  alt="img-jugador" height="150"
-          width="115"></img>
+      container
+      display="flex"
+      wrap="wrap"
+      justifyContent="left"
+      alignItems="center"
+      textAlign="left"
+      sx={{ mt: 15, mx:0.15, mb:-0.9 }}
+>
+  <Grid xs={1} display={{xs:'block', md:"block"}}>
+      <img src={form.img} alt="Foto de perfil del jugador" className="img-jugador" ></img>
   </Grid>
 
-  <Grid xs={11}>
+  <Grid xs={11} md={11}>
     <ul>
       <li><h1 className='playerName-h1'>{form.name + " " + form.surname}</h1></li>
       <li><h3 className='playerPos-h3'>{form.pn}</h3></li>
