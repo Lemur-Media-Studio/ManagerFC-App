@@ -325,12 +325,13 @@ export default function SquadField() {
   if (!search) {
     results = records
   } else {
-    results = records.filter((dato) => dato.name.toLowerCase().includes(search.toLocaleLowerCase())
-      || dato.pn.toLowerCase().includes(search.toLocaleLowerCase()))
+    results = records.filter((dato) => dato.surname.toLowerCase().includes(search.toLocaleLowerCase())
+      || dato.pn.toLowerCase().includes(search.toLocaleLowerCase())
+      || dato.ps.toLowerCase().includes(search.toLocaleLowerCase()))
 
     if (search === "CRI" || search === "CRD" || search === "PIV DEF" || search === "MC" ||
       search === "MP" || search === "DEL" || search === "POR" || search === "DC" || search === "LD" || search === "LI") {
-      results = records.filter((dato) => dato.pn.toLowerCase().includes(search.toLocaleLowerCase()))
+      results = records.filter((dato) => dato.pn.toLowerCase().includes(search.toLocaleLowerCase()) || dato.ps.toLowerCase().includes(search.toLocaleLowerCase()))
     }
 
     //Filtro centrales por posición y perfil hábil
@@ -370,6 +371,7 @@ export default function SquadField() {
                 width: 520,
                 height: 670,
                 backgroundImage: 'url(https://sharemytactics.com/images/pitch.png)',
+                display: { xs: 'none !important', md: 'flex !important' }
               }}
               className="field-img"
             >
@@ -394,11 +396,11 @@ export default function SquadField() {
 
           </Grid>
 
-          <Grid xs={6.4}>
+          <Grid xs={12} md={6.4}>
             <Loading loading={isLoading}>
 
             <div className="buscar" >
-                <Input className="input-filter-table" placeholder="Nombre" onChange={searcher}></Input>
+                <Input className="input-filter-table" placeholder="Apellido" onChange={searcher}></Input>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                 </svg>
@@ -407,7 +409,7 @@ export default function SquadField() {
                 </Button>
             </div>
 
-              <TableContainer sx={{ maxHeight: 670, maxWidth: 700 }}>
+              <TableContainer sx={{ maxHeight: 670, maxWidth: 700, display: { xs: 'flex', md: 'block' }, justifyContent: {xs: 'center !important'} }}>
                 <Table sx={{ maxWidth: 800 }} aria-label="simple table" className="table-players">
                   <TableHead>
                     <TableRow >

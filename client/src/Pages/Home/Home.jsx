@@ -29,8 +29,8 @@ function Home(){
                     </div>
                 </Grid>
             
-                <Grid xs={12} sm={2}>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Soccer_pitch_transparent_25p_grey.svg/1200px-Soccer_pitch_transparent_25p_grey.svg.png" height="400" alt="Campo de fútbol" />
+                <Grid xs={6} sm={2} align="center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Soccer_pitch_transparent_25p_grey.svg/1200px-Soccer_pitch_transparent_25p_grey.svg.png" height="400" alt="Campo de fútbol" className="img-home" />
                 </Grid>
             </Grid>
 

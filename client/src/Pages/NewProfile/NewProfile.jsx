@@ -527,7 +527,7 @@ export default function NewProfile() {
             <h3>ATRIBUTOS</h3>
           </Grid>
 
-          <Grid xs={3}>
+          <Grid xs={6} md={3}>
             <FormLabel
               sx={{ mt: 2, pl: 5 }}
               component="legend"
@@ -567,7 +567,7 @@ export default function NewProfile() {
             </ul>
           </Grid>
 
-          <Grid xs={3}>
+          <Grid xs={6} md={3}>
             <FormLabel
               sx={{ mt: 2, pl: 5 }}
               component="legend"
@@ -586,7 +586,7 @@ export default function NewProfile() {
               <li><FormControlLabel label="Velocidad" control={<Checkbox value="Velocidad" onChange={(e) => updateForm({ fi8: e.target.value })}></Checkbox>}></FormControlLabel></li>
             </ul>
           </Grid>
-          <Grid xs={3}>
+          <Grid xs={6} md={3}>
             <FormLabel
               sx={{ mt: 2, pl: 5 }}
               component="legend"
@@ -612,7 +612,7 @@ export default function NewProfile() {
               <li><FormControlLabel label="Visión" control={<Checkbox value="Visión" onChange={(e) => updateForm({ men15: e.target.value })}></Checkbox>}></FormControlLabel></li>
             </ul>
           </Grid>
-          <Grid xs={3}>
+          <Grid xs={6} md={3}>
             <FormLabel
               sx={{ mt: 2, pl: 5 }}
               component="legend"

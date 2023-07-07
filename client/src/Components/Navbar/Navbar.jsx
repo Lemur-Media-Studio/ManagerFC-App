@@ -40,7 +40,7 @@ function Navbar() {
     <AppBar sx={{background:'linear-gradient(100deg, rgb(75,44,107) 4%, rgb(55,24,97) 8%, rgb(25,14,67) 75%, rgb(16, 5, 32) 5%)', color:'#fff'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-{/*           <SportsSoccerIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+
           <Typography
             variant="h6"
             noWrap
@@ -90,12 +90,18 @@ function Navbar() {
             >
               {navbarItems.map((page) => (
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page.label}</Typography>
+                  <Typography textAlign="center"
+                    as={Link} to={page.route}
+                    key={page.id}
+                    sx={{ display: 'block', textDecoration:'none', color:'#fff' }}
+                  >
+                    {page.label}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <SportsSoccerIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+{/*           <SportsSoccerIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
           <Typography
             variant="h5"
             noWrap
@@ -105,14 +111,14 @@ function Navbar() {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: 'Inter',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            LPM
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {navbarItems.map((page) => (
@@ -127,9 +133,9 @@ function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Opciones">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="?" src="/static/images/avatar/2.jpg" />
+                <Avatar src="/broken-image.jpg" sx={{ bgcolor: "#9b0181 !important" }} />
               </IconButton>
             </Tooltip>
             <Menu
