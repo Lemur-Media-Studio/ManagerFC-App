@@ -39,8 +39,8 @@ recordRoutes.route("/admin/:id").get(function (req, res) {
 recordRoutes.route("/admin/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
-    admin: req.body.name,
-    password: req.body.surname,
+    admin: req.body.admin,
+    password: req.body.password,
     rule: req.body.rule
   };
   db_connect.collection("admin").insertOne(myobj, function (err, res) {
