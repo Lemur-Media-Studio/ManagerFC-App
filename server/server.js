@@ -8,6 +8,7 @@ app.use(express.json());
 app.use(require("./routes/record"));
 app.use(require("./routes/preselectPlayer"));
 app.use(require("./routes/lineup"))
+app.use(require("./routes/admin"))
 // get driver connection
 const dbo = require("./db/conn");
 

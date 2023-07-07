@@ -46,7 +46,6 @@ recordRoutes.route("/admin/add").post(function (req, response) {
   db_connect.collection("admin").insertOne(myobj, function (err, res) {
     if (err) throw err;
     response.json(res);
-
   });
 });
 module.exports = recordRoutes;
