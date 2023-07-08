@@ -15,6 +15,7 @@ import Shortlist from "./Pages/Shortlist/Shortlist";
 import ShortlistedDetails from "./Pages/ShortlistedDetails/ShortlistedDetails";
 import EditpreselectPlayer from "./Components/editsquadPlayers";
 import Footer from "./Components/Footer/Footer";
+import Login from "./Pages/Login/Login";
 
 
 
@@ -25,18 +26,18 @@ const App = () => {
       
       <div className="App" style={{ margin: 0 }}>
         <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/squad" element={<SquadPlayer />} />
-          <Route path="/edit/:id" element={<Edit />} />
-          <Route path="/add-to-squad" element={<AddToSquad />} />
-          <Route path="/detail/:id" element={<SquadPlayerDetails />} />
-          <Route path="/new-profile" element={<NewProfile />} />
-          <Route path="/shortlist" element={<Shortlist />} />
-          <Route path="/shortlisted-player/:id" element={<ShortlistedDetails />} />
-          <Route path="/edit-shortlisted-player/:id" element={<EditpreselectPlayer />} />
-
-        </Routes>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/squad" element={<SquadPlayer />} />
+            <Route path="/edit/:id" element={<Edit />} />
+            <Route path="/add-to-squad" element={<AddToSquad />} />
+            <Route path="/detail/:id" element={<SquadPlayerDetails />} />
+            <Route path="/new-profile" element={<NewProfile />} />
+            <Route path="/shortlist" element={<Shortlist />} />
+            <Route path="/shortlisted-player/:id" element={<ShortlistedDetails />} />
+            <Route path="/edit-shortlisted-player/:id" element={<EditpreselectPlayer />} />
+            <Route path="/login" element={<Login />} /> 
+          </Routes>
         <Footer />
       </div>
   
