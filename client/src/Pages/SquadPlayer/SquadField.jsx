@@ -326,8 +326,8 @@ export default function SquadField() {
     results = records
   } else {
     results = records.filter((dato) => dato.surname.toLowerCase().includes(search.toLocaleLowerCase())
-      || dato.pn.toLowerCase().includes(search.toLocaleLowerCase())
-      || dato.ps.toLowerCase().includes(search.toLocaleLowerCase()))
+    || dato.pn.toLowerCase().includes(search.toLocaleLowerCase())
+    || dato.ps.toLowerCase().includes(search.toLocaleLowerCase()))
 
     if (search === "CRI" || search === "CRD" || search === "PIV DEF" || search === "MC" ||
       search === "MP" || search === "DEL" || search === "POR" || search === "DC" || search === "LD" || search === "LI") {
@@ -347,14 +347,6 @@ export default function SquadField() {
       results = records.filter((dato) => (dato.fn.startsWith("2001") || dato.fn.startsWith("2002") || dato.fn.startsWith("2003") || dato.fn.startsWith("2004") || dato.fn.startsWith("2005") || dato.fn.startsWith("2006")))
     }
   }
-
-
-
-
-
-
-
-
 
   // This following section will display the table with the records of individuals.
   return (

@@ -11,8 +11,12 @@ import {
   Twitter,
   YouTube,
 } from "@mui/icons-material";
+import Loading from "../../Components/Spinner/Spinner";
 
 export default function ShortlistedDetails() {
+
+  const [isLoading, setIsLoading] = useState(true);
+
   const [form, setForm] = useState({
     name: "",
     surname: "",
@@ -65,7 +69,8 @@ export default function ShortlistedDetails() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
-      const response = await fetch(`https://lemurpromanagement-mdg.app/preselectPlayer/${params.id.toString()}`);
+
+      const response =  await fetch(`https://lemurpromanagement-mdg.app/preselectPlayer/${params.id.toString()}`);
 
       if (!response.ok) {
         const message = `An error has occured: ${response.statusText}`;
@@ -81,6 +86,7 @@ export default function ShortlistedDetails() {
       }
 
       setForm(record);
+      setIsLoading(false)
     }
 
     fetchData();
@@ -102,209 +108,215 @@ export default function ShortlistedDetails() {
 
   // This following section will display the form that takes input from the user to update the data.
   return (
+
   <Container sx={{pb:50}}>
 
-<Box sx={{ pb: 7, mt: 8 }} ref={ref}>
+    <Box sx={{ pb: 7, mt: 8 }} ref={ref}>
 
-<Grid
-      container
-      display="flex"
-      wrap="wrap"
-      justifyContent="left"
-      alignItems="center"
-      textAlign="left"
-      sx={{ mt: 15, mx:0.15, mb:-0.9 }}
->
-  <Grid xs={1} display={{xs:'block', md:"block"}}>
-      <img src={form.img} alt="Foto de perfil del jugador" className="img-jugador" ></img>
-  </Grid>
+      <Loading loading={isLoading}>
 
-  <Grid xs={11} md={11}>
-    <ul>
-      <li><h1 className='playerName-h1'>{form.name + " " + form.surname}</h1></li>
-      <li><h3 className='playerPos-h3'>{form.pn}</h3></li>
-    </ul>
-  </Grid>
-  </Grid>
+        <Grid
+              container
+              display="flex"
+              wrap="wrap"
+              justifyContent="left"
+              alignItems="center"
+              textAlign="left"
+              sx={{ mt: 15, mx:0.15, mb:-0.9 }}
+        >
+        <Grid xs={1} display={{xs:'block', md:"block"}}>
+          <div className="img-profile-container">
+            <img src={form.img || "https://cdn.vectorstock.com/i/preview-1x/53/14/cristiano-ronaldo-silhouette-vector-38925314.jpg"} alt="Foto de perfil del jugador" className="img-jugador" ></img>
+          </div>
+        </Grid>
 
-  <h2 className="spdetails-title">
-    PERFIL
-  </h2>
+        <Grid xs={11}>
+          <ul>
+            <li><h1 className='playerName-h1'>{form.name + " " + form.surname}</h1></li>
+            <li><h3 className='playerPos-h3'>{form.pn}</h3></li>
+          </ul>
+        </Grid>
+        </Grid>
 
-  <Grid
-    className="attributes"
-    container
-    display="flex"
-    wrap="wrap"
-    justifyContent="center"
-    textAlign="left"
-    sx={{ mt: 0 }}
-    >
-    <Grid xs={3}>
-    <FormLabel
-      sx={{ mt: 2, pl: 5 }}
-      component="legend"
-      className="playerinfo-container"
-    >
-      DATOS PERSONALES
-    </FormLabel>
-    <ul>
-      <li>Edad: {form.age1}</li>
-      <li>Fecha de nacimiento: {form.fn}</li>
-      <li>
-        Nacionalidad: <img src={form.na0} alt="Primera nacionalidad"></img>
-      </li>
-{/*         <li>
-        Segunda nacionalidad: <img src={form.na1} alt="Primera nacionalidad"></img>
-      </li> */}
-      <li>Idiomas: {form.s1}</li>
-      <li>Estado civil: {form.s2}</li>
-      <li>Hijos: {form.s3}</li>
-    </ul>
-  </Grid>
+        <h2 className="spdetails-title">
+          PERFIL
+        </h2>
 
-  <Grid xs={3}>
-    <FormLabel
-      sx={{ mt: 2, pl: 5 }}
-      component="legend"
-      className="playerinfo-container"
-    >
-      FISICO
-    </FormLabel>
-    <ul>
-      <li>Altura: {form.alt} cm.</li>
-      <li>Peso: {form.peso} kg.</li>
-{/*         <li>Peso ideal: {form.pesoI}</li> */}
-    </ul>
-  </Grid>
-  <Grid xs={3}>
-    <FormLabel
-      sx={{ mt: 2, pl: 5 }}
-      component="legend"
-      className="playerinfo-container"
-    >
-      ATRIBUTOS FUTBOLÍSTICOS
-    </FormLabel>
-    <ul>
-        <li>Perfil hábil: {form.ph}</li>
-        <li>Técnicos: {showTecAttributes} {showGKAttributes}</li>
-        <li>Físicos: {showPhysicalAttributes}</li>
-    </ul>
-  </Grid>
-  <Grid xs={3}>
-    <FormLabel
-      sx={{ mt: 2, pl: 5 }}
-      component="legend"
-      className="playerinfo-container"
-    >
-      ATRIBUTOS MENTALES
-    </FormLabel>
-    <ul>
-        <li>
-          {showMentalAttributes}
-        </li>
-    </ul>
-  </Grid>
-  </Grid>
-    
-  <h2 className="spdetails-title">
-    CONTRATO
-  </h2>
-  <Grid
-    className="attributes"
-    container
-    display="flex"
-    wrap="wrap"
-    justifyContent="center"
-    textAlign="left"
-    sx={{ mt: 0 }}
-    >
-    <Grid xs={12} className="sd-contract">
+        <Grid
+          className="attributes"
+          container
+          display="flex"
+          wrap="wrap"
+          justifyContent="center"
+          textAlign="left"
+          sx={{ mt: 0 }}
+          >
+          <Grid xs={6} md={3}>
+          <FormLabel
+            sx={{ mt: 2, pl: 5 }}
+            component="legend"
+            className="playerinfo-container"
+          >
+            DATOS PERSONALES
+          </FormLabel>
+          <ul>
+            <li>Edad: {form.age1}</li>
+            <li>Fecha de nacimiento: {form.fn}</li>
+            <li>
+              Nacionalidad: <img src={form.na0} alt="Primera nacionalidad"></img>
+            </li>
+      {/*         <li>
+              Segunda nacionalidad: <img src={form.na1} alt="Primera nacionalidad"></img>
+            </li> */}
+            <li>Idiomas: {form.s1}</li>
+            <li>Estado civil: {form.s2}</li>
+            <li>Hijos: {form.s3}</li>
+          </ul>
+        </Grid>
 
-    <ul>
-      <li>Agente: {form.agente}</li>
-      <li>Club propietario: {form.ca}</li>
-      <li>Situación contractual: {form.sc}</li>
-      <li>Requiere piso: {form.reqpiso}</li>
-      <li>Interés en el traspaso: {form.it}</li>
-    </ul>
-  </Grid>
-  </Grid>
+        <Grid xs={6} md={3}>
+          <FormLabel
+            sx={{ mt: 2, pl: 5 }}
+            component="legend"
+            className="playerinfo-container"
+          >
+            FISICO
+          </FormLabel>
+          <ul>
+            <li>Altura: {form.alt} cm.</li>
+            <li>Peso: {form.peso} kg.</li>
+      {/*         <li>Peso ideal: {form.pesoI}</li> */}
+          </ul>
+        </Grid>
+        <Grid xs={6} md={3}>
+          <FormLabel
+            sx={{ mt: 2, pl: 5 }}
+            component="legend"
+            className="playerinfo-container"
+          >
+            ATRIBUTOS FUTBOLÍSTICOS
+          </FormLabel>
+          <ul>
+              <li>Perfil hábil: {form.ph}</li>
+              <li>Técnicos: {showTecAttributes} {showGKAttributes}</li>
+              <li>Físicos: {showPhysicalAttributes}</li>
+          </ul>
+        </Grid>
+        <Grid xs={6} md={3}>
+          <FormLabel
+            sx={{ mt: 2, pl: 5 }}
+            component="legend"
+            className="playerinfo-container"
+          >
+            ATRIBUTOS MENTALES
+          </FormLabel>
+          <ul>
+              <li>
+                {showMentalAttributes}
+              </li>
+          </ul>
+        </Grid>
+        </Grid>
+          
+        <h2 className="spdetails-title">
+          CONTRATO
+        </h2>
+        <Grid
+          className="attributes"
+          container
+          display="flex"
+          wrap="wrap"
+          justifyContent="center"
+          textAlign="left"
+          sx={{ mt: 0 }}
+          >
+          <Grid xs={12} className="sd-contract">
 
-  <h2 className="spdetails-title">
-    CONTACTO Y REDES
-  </h2>
-  <Grid
-    className="attributes"
-    container
-    display="flex"
-    wrap="wrap"
-    justifyContent="center"
-    textAlign="left"
-    sx={{ mt: 0 }}
-    >
-    <Grid xs={4}>
-    <FormLabel
-      sx={{ mt: 2, pl: 5 }}
-      component="legend"
-      className="playerinfo-container"
-    >
-      CONTACTO
-    </FormLabel>
-    <ul>
-      <li>Tel.: {form.phone}</li>
-      <li>Email: {form.email}</li>
-    </ul>
-  </Grid>
+          <ul>
+            <li>Agente: {form.agente}</li>
+            <li>Club propietario: {form.ca}</li>
+            <li>Situación contractual: {form.sc}</li>
+            <li>Requiere piso: {form.reqpiso}</li>
+            <li>Interés en el traspaso: {form.it}</li>
+          </ul>
+        </Grid>
+        </Grid>
 
-  <Grid xs={4}>
-    <FormLabel
-      sx={{ mt: 2, pl: 5 }}
-      component="legend"
-      className="playerinfo-container"
-    >
-      REDES SOCIALES
-    </FormLabel>
-    <ul>
-      <li><Button><FacebookIcon className='btn-social' /> <a href={form.fc} rel="noreferrer" target="_blank" className="social-link">Facebook</a></Button></li>
-      <li><Button><Instagram className='btn-social' /> <a href={form.ig} rel="noreferrer" target="_blank" className="social-link">Instagram</a></Button></li>
-      <li><Button><Twitter className='btn-social' /> <a href={form.tw} rel="noreferrer" target="_blank" className="social-link">Twitter</a></Button></li>
-    </ul>
-  </Grid>
+        <h2 className="spdetails-title">
+          CONTACTO Y REDES
+        </h2>
+        <Grid
+          className="attributes"
+          container
+          display="flex"
+          wrap="wrap"
+          justifyContent="center"
+          textAlign="left"
+          sx={{ mt: 0 }}
+          >
+          <Grid xs={6} md={4}>
+          <FormLabel
+            sx={{ mt: 2, pl: 5 }}
+            component="legend"
+            className="playerinfo-container"
+          >
+            CONTACTO
+          </FormLabel>
+          <ul>
+            <li>Tel.: {form.phone}</li>
+            <li>Email: {form.email}</li>
+          </ul>
+        </Grid>
 
-  <Grid xs={2}>
-    <FormLabel
-      sx={{ mt: 2, pl: 5 }}
-      component="legend"
-      className="playerinfo-container"
-    >
-      LINKS
-    </FormLabel>
-    <ul>
-      <li><Button><a href={form.tf} rel="noreferrer" target="_blank" className="social-link">Transfermarkt</a></Button></li>
-      <li><Button><a href={form.bs} rel="noreferrer" target="_blank" className="social-link">Besoccer</a></Button></li>
-      <li><Button><YouTube className='btn-social' /> <a href={form.yt} className="social-link">YouTube</a></Button></li>
-    </ul>
-  </Grid>
-  </Grid>
+        <Grid xs={6} md={4}>
+          <FormLabel
+            sx={{ mt: 2, pl: 5 }}
+            component="legend"
+            className="playerinfo-container"
+          >
+            REDES SOCIALES
+          </FormLabel>
+          <ul>
+            <li><Button><FacebookIcon className='btn-social' /> <a href={form.fc} rel="noreferrer" target="_blank" className="social-link">Facebook</a></Button></li>
+            <li><Button><Instagram className='btn-social' /> <a href={form.ig} rel="noreferrer" target="_blank" className="social-link">Instagram</a></Button></li>
+            <li><Button><Twitter className='btn-social' /> <a href={form.tw} rel="noreferrer" target="_blank" className="social-link">Twitter</a></Button></li>
+          </ul>
+        </Grid>
 
-  <h2 className="spdetails-title">
-    INCIDENCIAS
-  </h2>
-  <Grid
-      className="attributes"
-      container
-      display="flex"
-      wrap="wrap"
-      justifyContent="center"
-      textAlign="left"
-      sx={{ mt: 0 }}
-      >
-        <ul>
-          <li className='li-inc'>{form.inci}</li>
-        </ul>
-      </Grid>
-</Box>
+        <Grid xs={12} md={2}>
+          <FormLabel
+            sx={{ mt: 2, pl: {xs: 6, md: 5} }}
+            component="legend"
+            className="playerinfo-container"
+          >
+            LINKS
+          </FormLabel>
+          <ul>
+            <li><Button><a href={form.tf} rel="noreferrer" target="_blank" className="social-link">Transfermarkt</a></Button></li>
+            <li><Button><a href={form.bs} rel="noreferrer" target="_blank" className="social-link">Besoccer</a></Button></li>
+            <li><Button><YouTube className='btn-social' /> <a href={form.yt} className="social-link">YouTube</a></Button></li>
+          </ul>
+        </Grid>
+        </Grid>
+
+        <h2 className="spdetails-title">
+          INCIDENCIAS
+        </h2>
+        <Grid
+            className="attributes"
+            container
+            display="flex"
+            wrap="wrap"
+            justifyContent="center"
+            textAlign="left"
+            sx={{ mt: 0 }}
+            >
+              <ul>
+                <li className='li-inc'>{form.inci}</li>
+              </ul>
+            </Grid>
+        </Loading>
+    </Box>
 
 {/*       <h1>Detalles del jugador</h1>
       <img src={form.img}  alt="img-jugador"></img>

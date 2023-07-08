@@ -54,22 +54,43 @@ li{
     justify-content: center !important;
 }
 
-.img-jugador{
-    height: 120px !important;
-    width: 130px !important;
+.img-profile-container{
     border-top: #9b0181 double 5px;
     border-left: #9b0181 double 5px;
     border-right: #9b0181 double 5px;
     border-bottom: none !important;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    z-index: 2;
-    background-color: #190e43;
-    margin-bottom: 2px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-bottom: 6px;
     margin-left: -1px;
+    height: 120px !important;
+    width: 130px !important;
 }
 
-@media only screen and (max-width: 500px) {
+.img-jugador{
+    height: 118px !important;
+    width: 126px !important;
+    border-top: #fff double 1px;
+    border-left: #fff double 1px;
+    border-right: #fff double 1px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #fff;
+    margin-left: 1px;
+}
+
+@media only screen and (max-width: 700px) {
+    .playerName-h1{
+        margin: -5px 70px !important;
+        font-size: 25px !important;
+    }
+    
+    .playerPos-h3{
+        margin: 0 70px !important;
+    }
+}
+
+@media only screen and (min-width: 701px) and (max-width: 1000px) {
     .playerName-h1{
         margin: -5px 50px !important;
         font-size: 25px !important;
@@ -77,10 +98,5 @@ li{
     
     .playerPos-h3{
         margin: 0 50px !important;
-    }
-
-    .img-jugador{
-        height: 120px !important;
-        width: 130px !important;
     }
 }
